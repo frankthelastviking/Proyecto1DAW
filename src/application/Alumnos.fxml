@@ -86,15 +86,15 @@
          </font>
       </Text>
       <TextArea layoutX="1118.0" layoutY="463.0" prefHeight="408.0" prefWidth="759.0" />
-      <ImageView fitHeight="223.0" fitWidth="193.0" layoutX="1697.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="258.0" fitWidth="192.0" layoutX="1697.0" layoutY="141.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../bg04.jpg" />
+            <Image url="@../../../../../1467646262_522853_1467646344_noticia_normal.jpg" />
          </image>
       </ImageView>
       <TextField layoutX="1357.0" layoutY="237.0" prefHeight="39.0" prefWidth="327.0" />
       <TextField layoutX="1357.0" layoutY="286.0" prefHeight="39.0" prefWidth="327.0" />
       <TextField layoutX="1357.0" layoutY="337.0" prefHeight="39.0" prefWidth="327.0" />
-      <Button layoutX="1699.0" layoutY="355.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR FOTO">
+      <Button layoutX="1699.0" layoutY="409.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR FOTO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -118,7 +118,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR">
+      <Button layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
          <effect>
             <InnerShadow height="50.66" radius="24.0875" width="47.69" />
          </effect>
