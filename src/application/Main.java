@@ -56,13 +56,13 @@ public class Main extends Application {
     public void VentanaAlumnos() {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Alumnos.fxml"));
-            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            AnchorPane ventanaAlu = (AnchorPane) loader.load();
             /* Creamos la segunda ventana como otro stage */
             Stage ventana = new Stage();
             ventana.setTitle("Alumnos");
             /* Le decimos a la ventana quién es la ventana original */
             ventana.initOwner(stagePrincipal);
-            Scene scene = new Scene(ventanaDos);
+            Scene scene = new Scene(ventanaAlu);
             ventana.setScene(scene);
 
             AlumnosController controller2 = loader.getController();

@@ -55,7 +55,7 @@ public class MainController {
         this.ProgramaPrincipal = ProgramaPrincipal;
     }
 	
-	 private void nuevaVentana() {
+	 private void VentanaAlumnos() {
 	       	this.ProgramaPrincipal.VentanaAlumnos();
 	    }
 
