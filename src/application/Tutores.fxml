@@ -29,10 +29,10 @@
             </Text>
             <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="339.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../icons8-estudiante-masculino-80.png" />
+                  <Image url="@../../../../../icons8-gerente-80.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="1221.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALUMNOS" textAlignment="CENTER" wrappingWidth="673.5117492675781">
+            <Text fill="WHITE" layoutX="1221.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TUTORES" textAlignment="CENTER" wrappingWidth="673.5117492675781">
                <font>
                   <Font name="Georgia Bold" size="48.0" />
                </font>
@@ -80,12 +80,12 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1120.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OBSERVACIONES" textAlignment="CENTER" wrappingWidth="312.5117492675781">
+      <Text fill="WHITE" layoutX="1120.0" layoutY="655.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OBSERVACIONES" textAlignment="CENTER" wrappingWidth="312.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextArea layoutX="1118.0" layoutY="463.0" prefHeight="408.0" prefWidth="759.0" />
+      <TextArea layoutX="1118.0" layoutY="670.0" prefHeight="201.0" prefWidth="759.0" />
       <ImageView fitHeight="258.0" fitWidth="192.0" layoutX="1697.0" layoutY="141.0" pickOnBounds="true">
          <image>
             <Image url="@../../../../../1467646262_522853_1467646344_noticia_normal.jpg" />
