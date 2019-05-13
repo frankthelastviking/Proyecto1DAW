@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 
 public class Main extends Application {
+	//Esto es la ventana principal
 
     private static Stage stagePrincipal;
     private AnchorPane rootPane;

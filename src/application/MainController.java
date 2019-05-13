@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 
 public class MainController {
 	
+	//Esto es el controller de la ventana principal
+	
 	private  Main ProgramaPrincipal;
 	
 	@FXML
