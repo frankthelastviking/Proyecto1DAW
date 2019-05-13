@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 public class MainController {
 	
-	 private  Main ProgramaPrincipal;
+	private  Main ProgramaPrincipal;
 	
 	@FXML
 	private Button ALUMNOS;
@@ -49,9 +49,13 @@ public class MainController {
 	}
 	
 	
-	public void setProgramaPrincipal(Main ProgramaPrincipal) {
+	public void mostrarVentanaPrincipal(Main ProgramaPrincipal) {
         this.ProgramaPrincipal = ProgramaPrincipal;
     }
 	
+	 private void nuevaVentana() {
+	       	this.ProgramaPrincipal.VentanaAlumnos();
+	    }
 
+	
 }

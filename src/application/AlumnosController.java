@@ -9,7 +9,7 @@ public class AlumnosController {
 	
 	public void setStagePrincipal(Stage ventana) {
 		// TODO Auto-generated method stub
-		this.alumnos = ventana;
+		this.alumnos = alumnos;
 	}
 
 	public void closeWindow(){

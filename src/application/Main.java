@@ -40,7 +40,7 @@ public class Main extends Application {
             /*
              * Añadidos las llamadas del main al Controlador y del controlador al main ***/
             MainController controller = loader.getController();
-            controller.setProgramaPrincipal(this);
+            controller.mostrarVentanaPrincipal(this);
 
             stagePrincipal.show();
         } catch (IOException e) {
@@ -54,7 +54,7 @@ public class Main extends Application {
      */
     public void VentanaAlumnos() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/VentanaDos.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Alumnos.fxml"));
             AnchorPane ventanaDos = (AnchorPane) loader.load();
             /* Creamos la segunda ventana como otro stage */
             Stage ventana = new Stage();
