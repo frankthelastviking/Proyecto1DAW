@@ -107,37 +107,37 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="656.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-plan-de-estudios-80.png" />
+            <Image url="@../imagesUI/icons8-plan-de-estudios-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="134.0" fitWidth="136.0" layoutX="197.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-estudiante-masculino-80.png" />
+            <Image url="@../imagesUI/icons8-estudiante-masculino-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="136.0" fitWidth="124.0" layoutX="1580.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-gerente-80.png" />
+            <Image url="@../imagesUI/icons8-gerente-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="144.0" fitWidth="130.0" layoutX="1120.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-rascacielos-80.png" />
+            <Image url="@../imagesUI/icons8-rascacielos-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="130.0" fitWidth="146.0" layoutX="385.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-añadir-contacto-a-empresa-80.png" />
+            <Image url="@../imagesUI/icons8-añadir-contacto-a-empresa-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="120.0" fitWidth="130.0" layoutX="908.0" layoutY="603.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-ver-archivo-80.png" />
+            <Image url="@../imagesUI/icons8-ver-archivo-80.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="1400.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../icons8-cargar-documento-de-enlace-80.png" />
+            <Image url="@../imagesUI/icons8-cargar-documento-de-enlace-80.png" />
          </image>
       </ImageView>
    </children>
