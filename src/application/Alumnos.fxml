@@ -29,7 +29,7 @@
             </Text>
             <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="339.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../icons8-estudiante-masculino-80.png" />
+                  <Image url="@../imagesUI/icons8-estudiante-masculino-80.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="1221.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALUMNOS" textAlignment="CENTER" wrappingWidth="673.5117492675781">
