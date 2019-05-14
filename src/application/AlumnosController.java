@@ -1,10 +1,14 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class AlumnosController {
@@ -39,6 +43,26 @@ public class AlumnosController {
 	
 	@FXML
 	private TableView<Alumno> Tabla;
+	
+	@FXML
+	private TableColumn<Alumno,String> ColDNI;
+
+	@FXML
+	private TableColumn<Alumno,String> ColNomb;
+	
+	@FXML
+	private TableColumn<Alumno,String> ColApell;
+
+	@FXML
+	private TableColumn<Alumno,String> ColObsrv;
+	
+	private final ObservableList<Alumno> data = FXCollections.observableArrayList();
+	
+	public void initialize(){
+		Tabla.setItems(this.data);
+		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("nombre"));
+		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellido"));
+	}
 	
 	
 	
