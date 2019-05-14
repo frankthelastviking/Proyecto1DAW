@@ -1,5 +1,8 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -55,9 +58,27 @@ public class MainController {
         this.ProgramaPrincipal = ProgramaPrincipal;
     }
 	
-	 private void VentanaAlumnos() {
-	       	this.ProgramaPrincipal.VentanaAlumnos();
-	    }
+	public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
 
+   
+    @FXML
+    private void Alumnos() {
+       	this.ProgramaPrincipal.VentanaAlumnos();
 	
+}
+    
+    @FXML
+    private void Empresas() {
+       	this.ProgramaPrincipal.VentanaEmpresas();
+	
+}
+    
+    @FXML
+    private void AñadirRepresentanteController() {
+       	this.ProgramaPrincipal.VentanaEmpresas();
+	
+}
+
 }
