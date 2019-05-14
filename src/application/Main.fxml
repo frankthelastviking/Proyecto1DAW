@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="193.0" fitWidth="292.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../logo-colegio-valle-del-miro.png" />
+                  <Image url="@../imagesUI/logo-colegio-valle-del-miro.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="656.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APLICACION DE GESTION DE PRACTICAS" textAlignment="CENTER" wrappingWidth="597.5117492675781">
