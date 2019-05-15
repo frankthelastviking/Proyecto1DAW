@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -37,6 +38,8 @@ public class Main extends Application {
             rootPane=(AnchorPane) loader.load();
             Scene scene = new Scene(rootPane);
             stagePrincipal.setTitle("Ventana Principal");
+            stagePrincipal.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+            stagePrincipal.setTitle("APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V"); 
             stagePrincipal.setScene(scene);
             /*
              * Añadidos las llamadas del main al Controlador y del controlador al main ***/
@@ -54,7 +57,7 @@ public class Main extends Application {
      * Lo llama el controlador de la vista principal
      */
   
+}
 
-
-    }
+    
 
