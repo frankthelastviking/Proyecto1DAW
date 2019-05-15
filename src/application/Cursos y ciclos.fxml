@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
@@ -17,11 +18,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="174.0" prefWidth="1926.0">
+      <AnchorPane layoutX="-3.0" layoutY="-2.0" prefHeight="174.0" prefWidth="1926.0">
          <children>
             <ImageView fitHeight="105.0" fitWidth="220.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../logo-colegio-valle-del-miro.png" />
+                  <Image url="@../imagesUI/logo-colegio-valle-del-miro.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="650.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APLICACION DE GESTION DE PRACTICAS" textAlignment="CENTER" wrappingWidth="673.5117492675781">
@@ -34,12 +35,12 @@
                   <Image url="@../imagesUI/icons8-plan-de-estudios-80.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="1221.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPRESAS" textAlignment="CENTER" wrappingWidth="673.5117492675781">
+            <Text fill="WHITE" layoutX="1221.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CICLOS Y CURSOS" textAlignment="CENTER" wrappingWidth="673.5117492675781">
                <font>
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <Button layoutX="1138.0" layoutY="173.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO CICLO">
+            <Button layoutX="1121.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO CICLO">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -47,7 +48,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="1415.0" layoutY="173.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
+            <Button layoutX="1398.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -55,6 +56,11 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
+            <Text fill="WHITE" layoutX="1128.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CICLOS" wrappingWidth="235.51174926757812">
+               <font>
+                  <Font name="Georgia Bold" size="48.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
@@ -69,26 +75,26 @@
             <TableColumn prefWidth="85.0" text="N.PLAZAS" />
         </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="1116.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" textAlignment="CENTER" wrappingWidth="180.51174926757812">
+      <Text fill="WHITE" layoutX="1116.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" textAlignment="CENTER" wrappingWidth="180.51174926757812">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
       <Separator layoutX="1065.0" layoutY="122.0" orientation="VERTICAL" prefHeight="893.0" prefWidth="15.0" />
-      <Text fill="WHITE" layoutX="1125.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAMILIA PROFESIONAL" wrappingWidth="425.5117492675781">
+      <Text fill="WHITE" layoutX="1125.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAMILIA PROFESIONAL" wrappingWidth="425.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1122.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COD CICLO" wrappingWidth="281.5117492675781">
+      <Text fill="WHITE" layoutX="1122.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COD CICLO" wrappingWidth="281.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1574.0" layoutY="261.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1574.0" layoutY="310.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1574.0" layoutY="408.0" prefHeight="39.0" prefWidth="265.0" />
-      <Button layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR FOTOCOPIA DNI">
+      <TextField layoutX="1574.0" layoutY="301.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField layoutX="1574.0" layoutY="350.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField layoutX="1574.0" layoutY="448.0" prefHeight="39.0" prefWidth="265.0" />
+      <Button layoutX="1125.0" layoutY="918.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR CALENDARIO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -96,7 +102,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1381.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
+      <Button layoutX="1381.0" layoutY="918.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR HORARIO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -104,7 +110,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
+      <Button layoutX="1636.0" layoutY="917.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
          <effect>
             <InnerShadow height="50.66" radius="24.0875" width="47.69" />
          </effect>
@@ -112,42 +118,50 @@
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Text fill="WHITE" layoutX="1125.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE PLAZAS" textAlignment="CENTER" wrappingWidth="369.5117492675781">
+      <Text fill="WHITE" layoutX="1125.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE PLAZAS" textAlignment="CENTER" wrappingWidth="369.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1125.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO" wrappingWidth="109.0">
+      <Text fill="WHITE" layoutX="1125.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIPO" wrappingWidth="109.0">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1575.0" layoutY="360.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1576.0" layoutY="455.0" prefHeight="39.0" prefWidth="109.0" />
-      <CheckBox layoutX="1731.0" layoutY="483.0" mnemonicParsing="false" text="Vigente" textFill="WHITE">
+      <TextField layoutX="1575.0" layoutY="400.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField layoutX="1576.0" layoutY="495.0" prefHeight="39.0" prefWidth="109.0" />
+      <CheckBox layoutX="1731.0" layoutY="523.0" mnemonicParsing="false" text="Vigente" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>
       </CheckBox>
-      <Text fill="WHITE" layoutX="1118.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REPRESENTANTE" textAlignment="CENTER" wrappingWidth="312.5117492675781">
+      <Text fill="WHITE" layoutX="1118.0" layoutY="799.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CICLO" wrappingWidth="312.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <MenuButton layoutX="1444.0" layoutY="727.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="242.0" text="MenuButton">
+      <MenuButton layoutX="1444.0" layoutY="765.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="242.0" text="MenuButton">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
       <Separator layoutX="1067.0" layoutY="660.0" prefHeight="39.0" prefWidth="854.0" />
-      <Text fill="WHITE" layoutX="1123.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE HORAS" textAlignment="CENTER" wrappingWidth="369.5117492675781">
+      <Text fill="WHITE" layoutX="1123.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE HORAS" textAlignment="CENTER" wrappingWidth="369.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1576.0" layoutY="501.0" prefHeight="39.0" prefWidth="109.0" />
-      <Button layoutX="1118.0" layoutY="551.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR FOTOCOPIA DNI">
+      <TextField layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
+      <Button layoutX="1122.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION &#10;DE PRESENTACION" textOverrun="CLIP">
+         <effect>
+            <InnerShadow height="53.62" radius="24.8275" width="47.69" />
+         </effect>
+         <font>
+            <Font name="Century" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="1378.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR OTRA &#10;DOCUMENTACION">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -155,15 +169,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1374.0" layoutY="551.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
-         <effect>
-            <InnerShadow height="53.62" radius="24.8275" width="47.69" />
-         </effect>
-         <font>
-            <Font name="Century" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="1680.0" layoutY="738.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO CICLO">
+      <Button layoutX="1707.0" layoutY="764.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="168.0" text="GENERAR CURSO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -172,5 +178,38 @@
          </font>
       </Button>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <Text fill="WHITE" layoutX="1118.0" layoutY="845.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AÑO ACADEMICO" wrappingWidth="312.5117492675781">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1116.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE HORAS" wrappingWidth="441.5117492675781">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Text>
+      <TextField layoutX="1576.0" layoutY="860.0" prefHeight="39.0" prefWidth="109.0" />
+      <DatePicker layoutX="1576.0" layoutY="812.0" prefHeight="39.0" prefWidth="109.0" />
+      <Text fill="WHITE" layoutX="1121.0" layoutY="744.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURSOS" wrappingWidth="235.51174926757812">
+         <font>
+            <Font name="Georgia Bold" size="48.0" />
+         </font>
+      </Text>
+      <Button layoutX="1125.0" layoutY="958.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR DOC. PRESENTACION">
+         <effect>
+            <InnerShadow height="53.62" radius="24.8275" width="47.69" />
+         </effect>
+         <font>
+            <Font name="Century" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="1381.0" layoutY="958.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
+         <effect>
+            <InnerShadow height="53.62" radius="24.8275" width="47.69" />
+         </effect>
+         <font>
+            <Font name="Century" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
