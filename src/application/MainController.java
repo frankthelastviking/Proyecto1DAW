@@ -63,22 +63,6 @@ public class MainController {
     }
 
    
-    @FXML
-    private void Alumnos() {
-       	this.ProgramaPrincipal.VentanaAlumnos();
-	
-}
-    
-    @FXML
-    private void Empresas() {
-       	this.ProgramaPrincipal.VentanaEmpresas();
-	
-}
-    
-    @FXML
-    private void AñadirRepresentanteController() {
-       	this.ProgramaPrincipal.VentanaEmpresas();
-	
-}
+
 
 }

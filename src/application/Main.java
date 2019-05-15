@@ -53,70 +53,8 @@ public class Main extends Application {
     /* Este método es llamado cuando se presiona el botón de la ventana principal
      * Lo llama el controlador de la vista principal
      */
-    public void VentanaAlumnos() {
-        try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Alumnos.fxml"));
-            AnchorPane ventanaAlu = (AnchorPane) loader.load();
-            /* Creamos la segunda ventana como otro stage */
-            Stage ventana = new Stage();
-            ventana.setTitle("Alumnos");
-            /* Le decimos a la ventana quién es la ventana original */
-            ventana.initOwner(stagePrincipal);
-            Scene scene = new Scene(ventanaAlu);
-            ventana.setScene(scene);
+  
 
-            AlumnosController controller2 = loader.getController();
-            controller2.setStagePrincipal(ventana);
 
-            ventana.show();
-
-        } catch (Exception e) {
-            //tratar la excepción
-        }
     }
-    
-    
-    public void VentanaEmpresas() {
-        try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Empresas.fxml"));
-            AnchorPane ventanaEmp = (AnchorPane) loader.load();
-            /* Creamos la segunda ventana como otro stage */
-            Stage ventana = new Stage();
-            ventana.setTitle("Empresas");
-            /* Le decimos a la ventana quién es la ventana original */
-            ventana.initOwner(stagePrincipal);
-            Scene scene = new Scene(ventanaEmp);
-            ventana.setScene(scene);
 
-            EmpresaController controller2 = loader.getController();
-            controller2.setStagePrincipal(ventana);
-
-            ventana.show();
-
-        } catch (Exception e) {
-            //tratar la excepción
-        }
-    }
-    
-    public void VentanaAñadirRepresentante() {
-        try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/AñadirRepresentante.fxml"));
-            AnchorPane ventanaAlu = (AnchorPane) loader.load();
-            /* Creamos la segunda ventana como otro stage */
-            Stage ventana = new Stage();
-            ventana.setTitle("Añadir Representante");
-            /* Le decimos a la ventana quién es la ventana original */
-            ventana.initOwner(stagePrincipal);
-            Scene scene = new Scene(ventanaAlu);
-            ventana.setScene(scene);
-
-            AñadirRepresentanteController controller2 = loader.getController();
-            controller2.setStagePrincipal(ventana);
-
-            ventana.show();
-
-        } catch (Exception e) {
-            //tratar la excepción
-        }
-    }
-}

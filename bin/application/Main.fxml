@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="174.0" prefWidth="1926.0">
          <children>
@@ -49,7 +49,7 @@
       </AnchorPane>
       <Separator layoutY="160.0" prefHeight="39.0" prefWidth="1920.0" />
       <Separator layoutX="-7.0" layoutY="574.0" prefHeight="39.0" prefWidth="1932.0" />
-      <Button layoutX="45.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="ALUMNOS">
+      <Button fx:id="ALUMNOS" layoutX="45.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="ALUMNOS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -57,7 +57,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="509.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="CICLOS Y CURSOS">
+      <Button fx:id="CICLOS_Y_CURSOS" layoutX="509.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="CICLOS Y CURSOS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -65,7 +65,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="972.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="EMPRESAS">
+      <Button fx:id="EMPRESAS" layoutX="972.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="EMPRESAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -73,7 +73,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="1435.0" layoutY="318.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="TUTORES">
+      <Button fx:id="TUTORES" layoutX="1435.0" layoutY="318.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="TUTORES">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -81,7 +81,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="734.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="CONSULTAS">
+      <Button fx:id="CONSULTAS" layoutX="734.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="CONSULTAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -89,7 +89,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ASIGNAR PRACTICAS">
+      <Button fx:id="ASIGNAR_PRACTICAS" layoutX="211.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ASIGNAR PRACTICAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -97,7 +97,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button layoutX="1258.0" layoutY="728.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ANEXOS">
+      <Button fx:id="ANEXOS" layoutX="1258.0" layoutY="728.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ANEXOS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
