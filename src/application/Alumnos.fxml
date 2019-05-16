@@ -88,7 +88,7 @@
       <TextArea layoutX="1118.0" layoutY="463.0" prefHeight="408.0" prefWidth="759.0" />
       <ImageView fitHeight="258.0" fitWidth="192.0" layoutX="1697.0" layoutY="141.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../1467646262_522853_1467646344_noticia_normal.jpg" />
+            <Image url="@../imagesUI/1467646262_522853_1467646344_noticia_normal.jpg" />
          </image>
       </ImageView>
       <TextField layoutX="1357.0" layoutY="237.0" prefHeight="39.0" prefWidth="327.0" />

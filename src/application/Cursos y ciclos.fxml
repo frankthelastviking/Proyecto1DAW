@@ -55,7 +55,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Text fill="WHITE" layoutX="1128.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CICLOS" wrappingWidth="235.51174926757812">
+            <Text fill="WHITE" layoutX="1128.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CICLOS" wrappingWidth="235.51174926757812">
                <font>
                   <Font name="Georgia Bold" size="48.0" />
                </font>
