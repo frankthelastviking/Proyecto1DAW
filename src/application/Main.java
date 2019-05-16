@@ -39,7 +39,7 @@ public class Main extends Application {
             Scene scene = new Scene(rootPane);
             stagePrincipal.setTitle("Ventana Principal");
             stagePrincipal.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
-            stagePrincipal.setTitle("APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V"); 
+            stagePrincipal.setTitle("ALUMAPLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V"); 
             stagePrincipal.setScene(scene);
             /*
              * Añadidos las llamadas del main al Controlador y del controlador al main ***/

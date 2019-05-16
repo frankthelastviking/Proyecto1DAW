@@ -1,14 +1,21 @@
 package application;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class Empresa {
 	
-	String NIF;
+	
+	
+	
 	String Nombre;
-	String Especialidad;
+    String Especialidad;
+    String NIF;
 	String Cod_Convenio;
 	String Fecha_Firma;
 	String Fecha_Fin;
 	int NPlazas;
+	String Observaciones;
 	
 	
 	public Empresa(String nIF, String nombre, String especialidad, String cod_Convenio, String fecha_Firma,
