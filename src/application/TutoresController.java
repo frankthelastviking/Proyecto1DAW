@@ -11,11 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class AlumnosController {
-	//Esto es el controller de la ventana alumnos
+public class TutoresController {
 	
+	private Stage tutores;
 	
-	private Stage alumnos;
 	
 	@FXML
 	private Button SUBIR_FOTO;
@@ -45,46 +44,50 @@ public class AlumnosController {
 	private TextField DNI;
 	
 	@FXML
+	private TextField Correo;
+	
+	@FXML
+	private TextField Telefono;
+	
+	@FXML
 	private TextArea Observaciones;
 	
 	@FXML
-	private TableView<Alumno> Tabla;
+	private TableView<Tutor> Tabla;
 	
 	@FXML
-	private TableColumn<Alumno,String> ColDNI;
+	private TableColumn<Tutor,String> ColDNI;
 
 	@FXML
-	private TableColumn<Alumno,String> ColNomb;
+	private TableColumn<Tutor,String> ColNomb;
 	
 	@FXML
-	private TableColumn<Alumno,String> ColApell;
+	private TableColumn<Tutor,String> ColApell;
 
 	@FXML
-	private TableColumn<Alumno,String> ColObsrv;
+	private TableColumn<Tutor,String> ColCorr;
 	
-	private final ObservableList<Alumno> data = FXCollections.observableArrayList();
+	@FXML
+	private TableColumn<Tutor,String> ColTel;
+	
+	private final ObservableList<Tutor> data = FXCollections.observableArrayList();
 	
 	public void initialize(){
 		Tabla.setItems(this.data);
-		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("DNI"));
-		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Nombre"));
-		ColApell.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Apellidos"));
-		ColObsrv.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Observaciones"));
+		ColDNI.setCellValueFactory(new PropertyValueFactory<Tutor,String>("DNI"));
+		ColNomb.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Nombre"));
+		ColApell.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Apellidos"));
+		ColCorr.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Correo"));
+		ColTel.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Telefono"));
 	}
+
 	
-	
-	
-	public void setStagePrincipal(Stage alumnos) {
+public void setStagePrincipal(Stage tutores) {
 		
-		this.alumnos = alumnos;
+		this.tutores = tutores;
 	}
 
 	public void closeWindow(){
-		this.alumnos.close();
+		this.tutores.close();
 	}
-
-	
-	
-	
-
 }

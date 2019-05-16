@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 
@@ -79,16 +80,18 @@ public class TestConexion {
 	}
 	
 		
-	public String Consulta() {
+	public String ConsultaFecha() {
 		
 		String aux = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		
 		try {
 			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" ); 
+			ResultSet rset = stmt.executeQuery("SELECT FECHA_FIRMA_CONVENIO FROM "+esquema+".EMPRESAS" ); 
 			while(rset.next()) {
-				aux += rset.getInt(1) + " " + rset.getString(2) ;
+				aux += sdf.format(rset.getDate(1))  ;
 				aux += "\n";
+				System.out.println(aux);
 			}
 			rset.close();
 			stmt.close();
@@ -105,7 +108,7 @@ public class TestConexion {
 		
 		
 		TestConexion hola = new TestConexion();
-		hola.Consulta();
+		hola.ConsultaFecha();
 		conexion.close();
 	}
 

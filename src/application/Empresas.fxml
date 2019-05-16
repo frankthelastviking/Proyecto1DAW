@@ -41,7 +41,7 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <Button layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO EMPRESA">
+            <Button layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVA EMPRESA">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -109,7 +109,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR FOTOCOPIA DNI">
+      <Button layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="??????">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>

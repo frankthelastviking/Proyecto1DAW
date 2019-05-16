@@ -49,7 +49,7 @@
       </AnchorPane>
       <Separator layoutY="160.0" prefHeight="39.0" prefWidth="1920.0" />
       <Separator layoutX="-7.0" layoutY="574.0" prefHeight="39.0" prefWidth="1932.0" />
-      <Button fx:id="ALUMNOS" layoutX="45.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="ALUMNOS">
+      <Button fx:id="ALUMNOS" layoutX="45.0" layoutY="316.0" mnemonicParsing="false" onAction="#nuevaVentanaAlumnos" prefHeight="260.0" prefWidth="438.0" text="ALUMNOS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
