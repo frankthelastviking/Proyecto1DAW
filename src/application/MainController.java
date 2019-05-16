@@ -62,7 +62,10 @@ public class MainController {
         // TODO
     }
 
-   
+	@FXML
+    private void nuevaVentanaAlumnos() {
+       	this.ProgramaPrincipal.mostrarVentanaAlumnos();
+    }
 
 
 }

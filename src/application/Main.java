@@ -56,6 +56,28 @@ public class Main extends Application {
     /* Este método es llamado cuando se presiona el botón de la ventana principal
      * Lo llama el controlador de la vista principal
      */
+    
+    public void mostrarVentanaAlumnos() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Alumnos.fxml"));
+            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            /* Creamos la segunda ventana como otro stage */
+            Stage ventana = new Stage();
+            ventana.setTitle("Alumnos");
+            /* Le decimos a la ventana quién es la ventana original */
+            ventana.initOwner(stagePrincipal);
+            Scene scene = new Scene(ventanaDos);
+            ventana.setScene(scene);
+
+            AlumnosController controller2 = loader.getController();
+            controller2.setStagePrincipal(ventana);
+
+            ventana.show();
+
+        } catch (Exception e) {
+            //tratar la excepción
+        }
+    }
   
 }
 

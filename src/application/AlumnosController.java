@@ -30,6 +30,12 @@ public class AlumnosController {
 	private Button SALIR;
 	
 	@FXML
+	private Button Nuevo_Alumno;
+	
+	@FXML
+	private Button Guardar_Cambios;
+	
+	@FXML
 	private TextField Nombre;
 	
 	@FXML
@@ -60,8 +66,10 @@ public class AlumnosController {
 	
 	public void initialize(){
 		Tabla.setItems(this.data);
-		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("nombre"));
-		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellido"));
+		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("DNI"));
+		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Nombre"));
+		ColApell.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Apellidos"));
+		ColObsrv.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Observaciones"));
 	}
 	
 	
