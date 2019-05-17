@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class EmpresaController {
 	
-	private  EmpresaController ProgramaPrincipal;
+	private  EmpresaController EmpresasController;
 	
 	private Stage Empresas;
 	
@@ -117,7 +117,7 @@ public class EmpresaController {
 	
 	@FXML
     private void nuevaVentanaAnadirRepresentante() {
-		this.ProgramaPrincipal.mostrarVentanaAnadirRepresentante();	
+		this.EmpresasController.mostrarVentanaAnadirRepresentante();	
     }
 	
 	 public void mostrarVentanaAnadirRepresentante() {
