@@ -84,7 +84,12 @@ public class AlumnosController {
 	}
 
 	public void NuevoAlumno(){
-		Alumno nuevo = new Alumno(null, null, null, null);
+		String NombreST =  Nombre.getText();
+		String ApellidoST =  Apellido.getText();
+		String DNIST =  DNI.getText();
+		String ObservacionesST =  Observaciones.getText();
+		
+		Alumno nuevo = new Alumno(NombreST, ApellidoST, DNIST , ObservacionesST);
 		data.add(nuevo);
 	}
 	

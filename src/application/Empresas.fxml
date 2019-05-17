@@ -188,7 +188,7 @@
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <Button layoutX="1706.0" layoutY="588.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="AÑADIR REPRESENTANTE">
+      <Button fx:id="Anadir_Rep" layoutX="1706.0" layoutY="588.0" mnemonicParsing="false" onAction="#nuevaVentanaAnadirRepresentante" prefHeight="39.0" prefWidth="181.0" text="AÑADIR REPRESENTANTE">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>

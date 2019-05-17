@@ -6,7 +6,8 @@ public class AnadirRepresentanteController {
 	
 	private Stage AnadirRepresentante;
 	
-public void setStagePrincipal(Stage AnadirRepresentante) {
+
+	public void setStagePrincipal(Stage AnadirRepresentante) {
 		
 		this.AnadirRepresentante = AnadirRepresentante;
 	}

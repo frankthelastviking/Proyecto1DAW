@@ -3,14 +3,20 @@ package application;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class EmpresaController {
+	
+	private  EmpresaController ProgramaPrincipal;
 	
 	private Stage Empresas;
 	
@@ -33,6 +39,9 @@ public class EmpresaController {
 	
 	@FXML
 	private Button hola;
+	
+	@FXML
+	private Button Anadir_Rep;
 	
 	// textfields
 
@@ -105,5 +114,33 @@ public class EmpresaController {
 		this.Empresas.close();
 	}
 
+	
+	@FXML
+    private void nuevaVentanaAnadirRepresentante() {
+		this.ProgramaPrincipal.mostrarVentanaAnadirRepresentante();	
+    }
+	
+	 public void mostrarVentanaAnadirRepresentante() {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/AnadirRepresentante.fxml"));
+	            AnchorPane ventanaDos = (AnchorPane) loader.load();
+	            /* Creamos la segunda ventana como otro stage */
+	            Stage ventana = new Stage();
+	            ventana.setTitle("AÑADIR REPRESENTANTE - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
+	            Empresas.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+	            /* Le decimos a la ventana quién es la ventana original */
+	            ventana.initOwner(Empresas);
+	            Scene scene = new Scene(ventanaDos);
+	            ventana.setScene(scene);
+
+	            AnadirRepresentanteController controller2 = loader.getController();
+	            controller2.setStagePrincipal(ventana);
+
+	            ventana.show();
+
+	        } catch (Exception e) {
+	            //tratar la excepción 
+	        }
+	    }
 
 }
