@@ -15,7 +15,7 @@ public class AlumnosController {
 	//Esto es el controller de la ventana alumnos
 	
 	
-	private Stage alumnos;
+	private Stage Alumnos;
 	
 	@FXML
 	private Button SUBIR_FOTO;
@@ -76,14 +76,17 @@ public class AlumnosController {
 	
 	public void setStagePrincipal(Stage alumnos) {
 		
-		this.alumnos = alumnos;
+		this.Alumnos = alumnos;
 	}
 
 	public void closeWindow(){
-		this.alumnos.close();
+		this.Alumnos.close();
 	}
 
-	
+	public void NuevoAlumno(){
+		Alumno nuevo = new Alumno(null, null, null, null);
+		data.add(nuevo);
+	}
 	
 	
 

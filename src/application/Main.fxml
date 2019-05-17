@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CursosYCiclosController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="174.0" prefWidth="1926.0">
          <children>
@@ -65,7 +65,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="EMPRESAS" layoutX="972.0" layoutY="316.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="EMPRESAS">
+      <Button fx:id="EMPRESAS" layoutX="972.0" layoutY="316.0" mnemonicParsing="false" onAction="#nuevaVentanaEmpresas" prefHeight="260.0" prefWidth="438.0" text="EMPRESAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
