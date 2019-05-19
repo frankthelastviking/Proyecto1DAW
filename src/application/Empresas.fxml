@@ -41,7 +41,7 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <Button layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVA EMPRESA">
+            <Button fx:id="Nueva_Empresa" layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" onAction="#NuevaEmpresa" prefHeight="75.0" prefWidth="255.0" text="NUEVA EMPRESA">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -49,7 +49,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
+            <Button fx:id="Guardar_Cambios" layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -60,15 +60,15 @@
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
-      <TableView layoutX="18.0" layoutY="135.0" prefHeight="618.0" prefWidth="1024.0">
+      <TableView fx:id="TablaEmpresa" layoutX="18.0" layoutY="135.0" prefHeight="618.0" prefWidth="1024.0">
         <columns>
-          <TableColumn prefWidth="159.0" text="NIF" />
-          <TableColumn minWidth="0.0" prefWidth="233.0" text="NOMBRE" />
-            <TableColumn minWidth="0.0" prefWidth="177.0" text="ESPECIALIDAD" />
-            <TableColumn prefWidth="123.0" text="COD CONVENIO" />
-            <TableColumn prefWidth="123.0" text="FECHA FIRMA" />
-            <TableColumn prefWidth="123.0" text="FECHA FIN" />
-            <TableColumn prefWidth="85.0" text="N.PLAZAS" />
+          <TableColumn fx:id="ColNIF" prefWidth="159.0" text="NIF" />
+          <TableColumn fx:id="ColNombEmpr" minWidth="0.0" prefWidth="233.0" text="NOMBRE" />
+            <TableColumn fx:id="ColEsp" minWidth="0.0" prefWidth="177.0" text="ESPECIALIDAD" />
+            <TableColumn fx:id="ColCod" prefWidth="123.0" text="COD CONVENIO" />
+            <TableColumn fx:id="ColFir" prefWidth="123.0" text="FECHA FIRMA" />
+            <TableColumn fx:id="ColFin" prefWidth="123.0" text="FECHA FIN" />
+            <TableColumn fx:id="ColNplz" prefWidth="85.0" text="N.PLAZAS" />
         </columns>
       </TableView>
       <Text fill="WHITE" layoutX="1116.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" textAlignment="CENTER" wrappingWidth="180.51174926757812">
@@ -92,16 +92,16 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextArea layoutX="1118.0" layoutY="677.0" prefHeight="194.0" prefWidth="759.0" />
+      <TextArea fx:id="Observaciones" layoutX="1118.0" layoutY="677.0" prefHeight="194.0" prefWidth="759.0" />
       <ImageView fitHeight="223.0" fitWidth="193.0" layoutX="1697.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagesUI/bg04.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="1419.0" layoutY="237.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1419.0" layoutY="286.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1419.0" layoutY="389.0" prefHeight="39.0" prefWidth="265.0" />
-      <Button layoutX="1699.0" layoutY="355.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR LOGO">
+      <TextField fx:id="Nombre" layoutX="1419.0" layoutY="237.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="Especialidad" layoutX="1419.0" layoutY="286.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="Cod_Convenio" layoutX="1419.0" layoutY="389.0" prefHeight="39.0" prefWidth="265.0" />
+      <Button fx:id="SUBIR_LOGO" layoutX="1699.0" layoutY="355.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR LOGO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -109,7 +109,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="??????">
+      <Button fx:id="hola" layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="??????">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -117,7 +117,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1381.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
+      <Button fx:id="Adjuntar_Documentacion" layoutX="1381.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -153,21 +153,21 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1420.0" layoutY="336.0" prefHeight="39.0" prefWidth="265.0" />
-      <DatePicker layoutX="1575.0" layoutY="443.0" prefHeight="32.0" prefWidth="109.0" />
-      <DatePicker layoutX="1576.0" layoutY="493.0" prefHeight="32.0" prefWidth="109.0" />
-      <TextField layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
-      <CheckBox layoutX="1716.0" layoutY="460.0" mnemonicParsing="false" text="FP Básica" textFill="WHITE">
+      <TextField fx:id="Nif" layoutX="1420.0" layoutY="336.0" prefHeight="39.0" prefWidth="265.0" />
+      <DatePicker fx:id="Fecha_Firma" layoutX="1575.0" layoutY="443.0" prefHeight="32.0" prefWidth="109.0" />
+      <DatePicker fx:id="Fecha_Fin" layoutX="1576.0" layoutY="493.0" prefHeight="32.0" prefWidth="109.0" />
+      <TextField fx:id="Numero_plazas" layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
+      <CheckBox fx:id="Basico" layoutX="1716.0" layoutY="460.0" mnemonicParsing="false" text="FP Básica" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="1717.0" layoutY="543.0" mnemonicParsing="false" text="G Superior" textFill="WHITE">
+      <CheckBox fx:id="Superior" layoutX="1717.0" layoutY="543.0" mnemonicParsing="false" text="G Superior" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="1716.0" layoutY="502.0" mnemonicParsing="false" text="G Medio" textFill="WHITE">
+      <CheckBox fx:id="Medio" layoutX="1716.0" layoutY="502.0" mnemonicParsing="false" text="G Medio" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
          </font>

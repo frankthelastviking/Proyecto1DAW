@@ -29,7 +29,7 @@ public class TutoresController {
 	private Button SALIR;
 	
 	@FXML
-	private Button Nuevo_Alumno;
+	private Button Nuevo_Tutor;
 	
 	@FXML
 	private Button Guardar_Cambios;
@@ -82,7 +82,7 @@ public class TutoresController {
 	}
 
 	
-public void setStagePrincipal(Stage tutores) {
+public void setStageTutores(Stage tutores) {
 		
 		this.tutores = tutores;
 	}

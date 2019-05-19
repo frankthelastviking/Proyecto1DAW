@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TutoresController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="174.0" prefWidth="1926.0">
          <children>
@@ -39,7 +39,7 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <Button layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO TUTOR">
+            <Button fx:id="Nuevo_Tutor" layoutX="1138.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO TUTOR">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -47,7 +47,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
+            <Button fx:id="Guardar_Cambios" layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -58,13 +58,13 @@
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
-      <TableView layoutX="18.0" layoutY="135.0" prefHeight="860.0" prefWidth="1024.0">
+      <TableView fx:id="Tabla" layoutX="18.0" layoutY="135.0" prefHeight="860.0" prefWidth="1024.0">
         <columns>
-          <TableColumn prefWidth="171.0" text="DNI" />
-          <TableColumn minWidth="0.0" prefWidth="195.0" text="NOMBRE" />
-            <TableColumn minWidth="0.0" prefWidth="270.0" text="APELLIDOS" />
-            <TableColumn prefWidth="202.0" text="CORREO" />
-            <TableColumn prefWidth="185.0" text="TELEFONO" />
+          <TableColumn fx:id="ColDNI" prefWidth="171.0" text="DNI" />
+          <TableColumn fx:id="ColNomb" minWidth="0.0" prefWidth="195.0" text="NOMBRE" />
+            <TableColumn fx:id="ColApell" minWidth="0.0" prefWidth="270.0" text="APELLIDOS" />
+            <TableColumn fx:id="ColCorr" prefWidth="202.0" text="CORREO" />
+            <TableColumn fx:id="ColTel" prefWidth="185.0" text="TELEFONO" />
         </columns>
       </TableView>
       <Text fill="WHITE" layoutX="1116.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" textAlignment="CENTER" wrappingWidth="180.51174926757812">
@@ -88,16 +88,16 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextArea layoutX="1118.0" layoutY="583.0" prefHeight="288.0" prefWidth="759.0" />
+      <TextArea fx:id="Observaciones" layoutX="1118.0" layoutY="583.0" prefHeight="288.0" prefWidth="759.0" />
       <ImageView fitHeight="258.0" fitWidth="192.0" layoutX="1697.0" layoutY="215.0" pickOnBounds="true">
          <image>
             <Image url="@../imagesUI/1467646262_522853_1467646344_noticia_normal.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="1357.0" layoutY="237.0" prefHeight="39.0" prefWidth="327.0" />
-      <TextField layoutX="1357.0" layoutY="286.0" prefHeight="39.0" prefWidth="327.0" />
-      <TextField layoutX="1357.0" layoutY="335.0" prefHeight="39.0" prefWidth="327.0" />
-      <Button layoutX="1699.0" layoutY="484.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR FOTO">
+      <TextField fx:id="Nombre" layoutX="1357.0" layoutY="237.0" prefHeight="39.0" prefWidth="327.0" />
+      <TextField fx:id="Apellido" layoutX="1357.0" layoutY="286.0" prefHeight="39.0" prefWidth="327.0" />
+      <TextField fx:id="DNI" layoutX="1357.0" layoutY="335.0" prefHeight="39.0" prefWidth="327.0" />
+      <Button fx:id="SUBIR_FOTO" layoutX="1699.0" layoutY="484.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="181.0" text="SUBIR FOTO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -105,7 +105,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR FOTOCOPIA DNI">
+      <Button fx:id="Adjuntar_Fotocopia_DNI" layoutX="1125.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR FOTOCOPIA DNI">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -113,7 +113,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1381.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
+      <Button fx:id="Adjuntar_Documentacion" layoutX="1381.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -121,7 +121,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
+      <Button fx:id="SALIR" layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
          <effect>
             <InnerShadow height="50.66" radius="24.0875" width="47.69" />
          </effect>
@@ -139,8 +139,8 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1357.0" layoutY="384.0" prefHeight="39.0" prefWidth="327.0" />
-      <TextField layoutX="1357.0" layoutY="433.0" prefHeight="39.0" prefWidth="327.0" />
+      <TextField fx:id="Correo" layoutX="1357.0" layoutY="384.0" prefHeight="39.0" prefWidth="327.0" />
+      <TextField fx:id="Telefono" layoutX="1357.0" layoutY="433.0" prefHeight="39.0" prefWidth="327.0" />
       <Text fill="WHITE" layoutX="1128.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPRESA" wrappingWidth="264.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />

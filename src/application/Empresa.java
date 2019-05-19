@@ -14,12 +14,12 @@ public class Empresa {
 	String Cod_Convenio;
 	String Fecha_Firma;
 	String Fecha_Fin;
-	int NPlazas;
+	String NPlazas;
 	String Observaciones;
 	
 	
 	public Empresa(String nIF, String nombre, String especialidad, String cod_Convenio, String fecha_Firma,
-			String fecha_Fin, int nPlazas) {
+			String fecha_Fin, String nPlazas) {
 		super();
 		NIF = nIF;
 		Nombre = nombre;
@@ -91,12 +91,12 @@ public class Empresa {
 	}
 
 
-	public int getNPlazas() {
+	public String getNPlazas() {
 		return NPlazas;
 	}
 
 
-	public void setNPlazas(int nPlazas) {
+	public void setNPlazas(String nPlazas) {
 		NPlazas = nPlazas;
 	}
 	

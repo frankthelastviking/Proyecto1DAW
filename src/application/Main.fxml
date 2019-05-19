@@ -73,7 +73,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="TUTORES" layoutX="1435.0" layoutY="318.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="438.0" text="TUTORES">
+      <Button fx:id="TUTORES" layoutX="1435.0" layoutY="318.0" mnemonicParsing="false" onAction="#nuevaVentanaTutores" prefHeight="260.0" prefWidth="438.0" text="TUTORES">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>

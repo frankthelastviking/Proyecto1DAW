@@ -2,14 +2,28 @@ package application;
 
 
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -43,6 +57,25 @@ public class EmpresaController {
 	@FXML
 	private Button Anadir_Rep;
 	
+	//CheckBox
+	@FXML
+	private CheckBox Basico;
+	
+	@FXML
+	private CheckBox Medio;
+	
+	@FXML
+	private CheckBox Superior;
+	
+	
+	
+	//datepicker
+	@FXML
+	private DatePicker Fecha_Firma;
+	
+	@FXML
+	private DatePicker Fecha_Fin;
+	
 	// textfields
 
 	@FXML
@@ -67,13 +100,13 @@ public class EmpresaController {
 	
 	//tabla
 	@FXML
-	private TableView<Empresa> Tabla;
+	private TableView<Empresa> TablaEmpresa;
 	
 	@FXML
 	private TableColumn<Empresa,String> ColNIF;
 
 	@FXML
-	private TableColumn<Empresa,String> ColNomb;
+	private TableColumn<Empresa,String> ColNombEmpr;
 	
 	@FXML
 	private TableColumn<Empresa,String> ColEsp;
@@ -91,18 +124,24 @@ public class EmpresaController {
 	private TableColumn<Empresa,String> ColNplz;
 	
 	
-	
+	private final ObservableList<Empresa> data = FXCollections.observableArrayList();
 	
 	
 	
 	
 	
 
-	public void initialize() {
-		
+	public void initialize(){
+		TablaEmpresa.setItems(this.data);
+		ColNIF.setCellValueFactory(new PropertyValueFactory<Empresa,String>("NIF"));
+		ColNombEmpr.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Nombre"));
+		ColEsp.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Especialidad"));
+		ColCod.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Cod_Convenio"));
+		ColFir.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Fecha_Firma"));
+		ColFin.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Fecha_Fin"));
+		ColNplz.setCellValueFactory(new PropertyValueFactory<Empresa,String>("NPlazas"));
 		
 	}
-	
 	
 	
 	public void setStagePrincipal(Stage Empresas) {
@@ -117,19 +156,17 @@ public class EmpresaController {
 	
 	@FXML
     private void nuevaVentanaAnadirRepresentante() {
-		this.EmpresasController.mostrarVentanaAnadirRepresentante();	
+		//this.EmpresasController.mostrarVentanaAnadirRepresentante();	
     }
 	
-	 public void mostrarVentanaAnadirRepresentante() {
-	        try {
-	            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/AnadirRepresentante.fxml"));
-	            AnchorPane ventanaDos = (AnchorPane) loader.load();
-	            /* Creamos la segunda ventana como otro stage */
-	            Stage ventana = new Stage();
+	/* public void mostrarVentanaAnadirRepresentante() {
+	          AnchorPane ventanaDos = (AnchorPane) loader.load();
+	   */         /* Creamos la segunda ventana como otro stage */
+	/*          Stage ventana = new Stage();
 	            ventana.setTitle("AÑADIR REPRESENTANTE - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
-	            Empresas.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
-	            /* Le decimos a la ventana quién es la ventana original */
-	            ventana.initOwner(Empresas);
+	          Empresas.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+	       */   /* Le decimos a la ventana quién es la ventana original */
+	   /*          ventana.initOwner(Empresas);
 	            Scene scene = new Scene(ventanaDos);
 	            ventana.setScene(scene);
 
@@ -142,5 +179,64 @@ public class EmpresaController {
 	            //tratar la excepción 
 	        }
 	    }
+	*/
 
+	Connection conexion;
+	
+	public void NuevaEmpresa() throws SQLException, ParseException{
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		
+		
+		String Cod_ConvenioST = Cod_Convenio.getText();
+		String NombreST =  Nombre.getText();
+		String EspecialidadST =  Especialidad.getText();
+		String NIFST =  Nif.getText();
+		String ObservacionesST =  Observaciones.getText();
+		String basico;
+		String medio;
+		String superior;
+		
+		if (Basico.isSelected()==true) {
+			basico="SI";
+		}
+		else {
+			basico="NO";
+		}
+		
+		if (Medio.isSelected()==true) {
+			medio="SI";
+		}
+		else {
+			medio="NO";
+		}
+		
+		if (Superior.isSelected()==true) {
+			superior="SI";
+		}
+		else {
+			superior="NO";
+		}
+		
+		//El cancer de las fechas
+		
+        String firmaST = Fecha_Firma.getEditor().getText();
+        java.util.Date firmaDT =  sdf.parse(firmaST);
+        
+        
+        String finST = Fecha_Fin.getEditor().getText();
+        java.util.Date finDT =  sdf.parse(finST);
+        
+		String NplzST = Numero_plazas.getText();
+		
+		Empresa nuevo = new Empresa( NIFST, NombreST, EspecialidadST , Cod_ConvenioST, firmaST,  finST,NplzST );
+		data.add(nuevo);
+		
+		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
+		TestConexion AñadirEmpresa = new TestConexion();
+		AñadirEmpresa.Conectar();
+		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaDT , finDT, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
+		conexion.close();
+	}
+	
 }

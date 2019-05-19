@@ -54,7 +54,7 @@ public class TestConexion {
 	private static Connection conexion;
 	
 
-	public TestConexion()  {
+	public void Conectar()  {
 		
 		
 		
@@ -83,7 +83,7 @@ public class TestConexion {
 	public String ConsultaFecha() {
 		
 		String aux = "";
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		try {
 			Statement stmt = conexion.createStatement();
@@ -102,6 +102,52 @@ public class TestConexion {
 		return aux;
 		
 	}
+	
+public String InsertarAlumnoNuevo(String dni, String nombre, String apellidos, String Observaciones ) {
+		
+		String aux = "";
+		
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("INSERT INTO "+esquema+".ALUMNOS VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+Observaciones+"')");
+				
+			while(rset.next()) {
+				
+				
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+
+
+public String InsertarEmpresaNueva(String Cod_Convenio ,String NIF,String Especialidad,java.util.Date firmaDT ,java.util.Date finDT,String basico, String medio, String Superior, String ObservacionesST,String Nombre,String NplzST ) {
+	
+	String aux = "";
+	
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("INSERT INTO "+esquema+".EMPRESAS VALUES ('"+Cod_Convenio+"','"+NIF+"','"+Especialidad+"','"+firmaDT+"','"+finDT+"','"+basico+"','"+medio+"','"+Superior+"','"+ObservacionesST+"','"+Nombre+"','"+NplzST+"')" ); 
+		while(rset.next()) {
+			
+			
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
 	
 	public static void main(String[] args) throws SQLException {
 		

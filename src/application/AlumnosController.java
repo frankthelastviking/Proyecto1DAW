@@ -1,5 +1,8 @@
 package application;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -63,6 +66,10 @@ public class AlumnosController {
 	private TableColumn<Alumno,String> ColObsrv;
 	
 	private final ObservableList<Alumno> data = FXCollections.observableArrayList();
+
+	private Connection conexion;
+
+	
 	
 	public void initialize(){
 		Tabla.setItems(this.data);
@@ -83,16 +90,21 @@ public class AlumnosController {
 		this.Alumnos.close();
 	}
 
-	public void NuevoAlumno(){
+	public void NuevoAlumno() throws SQLException{
 		String NombreST =  Nombre.getText();
 		String ApellidoST =  Apellido.getText();
 		String DNIST =  DNI.getText();
 		String ObservacionesST =  Observaciones.getText();
 		
-		Alumno nuevo = new Alumno(NombreST, ApellidoST, DNIST , ObservacionesST);
+		Alumno nuevo = new Alumno(DNIST, NombreST,ApellidoST, ObservacionesST);
 		data.add(nuevo);
+		
+		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
+		TestConexion AñadirAlumno = new TestConexion();
+		AñadirAlumno.Conectar();
+		AñadirAlumno.InsertarAlumnoNuevo(DNIST, NombreST, ApellidoST, ObservacionesST);	
+		conexion.close();
 	}
-	
 	
 
 }

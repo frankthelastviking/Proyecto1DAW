@@ -21,7 +21,7 @@ private Stage CursosYCiclos;
 	
 	
 	
-	public void setStagePrincipal(Stage CursosYCiclos) {
+	public void setStageCursosYCiclos(Stage CursosYCiclos) {
 		
 		this.CursosYCiclos = CursosYCiclos;
 	}

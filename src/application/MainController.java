@@ -76,6 +76,11 @@ public class MainController {
     private void nuevaVentanaCursosYCiclos() {
        	this.ProgramaPrincipal.mostrarVentanaCursosYCiclos();
     }
+	
+	@FXML
+    private void nuevaVentanaTutores() {
+       	this.ProgramaPrincipal.mostrarVentanaTutores();
+    }
 
 
 }
