@@ -37,10 +37,13 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <MenuButton layoutX="34.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="757.0" text="MenuButton">
+            <MenuButton layoutX="34.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="757.0" text="Seleccionar consulta">
               <items>
-                <MenuItem mnemonicParsing="false" text="CONSULTA DEL TUMOR DE ENTORNOS" />
-                <MenuItem mnemonicParsing="false" text="ENTORNOS DA CANCER" />
+                <MenuItem mnemonicParsing="false" text="Listado alumnos" />
+                <MenuItem mnemonicParsing="false" text="Listado alumnos - matriculas - ciclos" />
+                  <MenuItem mnemonicParsing="false" text="Listado empresas" />
+                  <MenuItem mnemonicParsing="false" text="Listado alumnos - empresas" />
+                  <MenuItem mnemonicParsing="false" text="Listado cursos - ciclos" />
               </items>
             </MenuButton>
          </children>
