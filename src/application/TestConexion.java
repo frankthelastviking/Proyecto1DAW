@@ -184,7 +184,7 @@ public void InsertarTutorNuevo(String dni, String nombre, String apellidos,Strin
 		stmt.setString(7,codconvenio);
 		
 			
-		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"')");
+		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"','"+codconvenio+"')");
 		stmt.executeUpdate();
 		stmt.close();
 		
