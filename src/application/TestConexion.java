@@ -203,7 +203,7 @@ public void VincularEmpresaTutor(String dnitut, String codcon) {
 	
 	try {
 		PreparedStatement stmt;
-		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES (?,?)");
+		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".E_TIENEN VALUES (?,?)");
 		
 		stmt.setString(1,dnitut);
 		stmt.setString(2,codcon);
@@ -211,7 +211,7 @@ public void VincularEmpresaTutor(String dnitut, String codcon) {
 		
 		
 			
-		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dnitut+"','"+codcon+"')");
+
 		stmt.executeUpdate();
 		stmt.close();
 		
@@ -223,16 +223,16 @@ public void VincularEmpresaTutor(String dnitut, String codcon) {
 }
 
 
-public String SelectCodWhereNombre() {
+public String SelectCodWhereNombre(String nombre) {
 	
 	String aux="";
 	
 	try {
 		Statement stmt = conexion.createStatement();
-		ResultSet rset = stmt.executeQuery("SELECT Nombre FROM "+esquema+".EMPRESAS WHERE" );
+		ResultSet rset = stmt.executeQuery("SELECT Cod_Convenio FROM "+esquema+".EMPRESAS WHERE Nombre='"+nombre+"'");
 		while(rset.next()) {
-			aux += "\n";
-			System.out.println(aux);
+			aux +=rset.getString(1);
+			
 		}
 		rset.close();
 		stmt.close();
@@ -266,7 +266,31 @@ public ObservableList<String> ListadoEmpresas() {
 }
 
 
+public ObservableList<Alumno> CargarTablaAlumnos() {
+	
+	ObservableList<Alumno> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" );
+		while(rset.next()) {
+			String DNI = rset.getString(1);
+			String Nombre = rset.getString(2);
+			String Apellidos = rset.getString(3);
+			String Observaciones = rset.getString(4);
+			Alumno alnuevo=new Alumno(DNI,Nombre,Apellidos,Observaciones);
+			aux.add(alnuevo);
 
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
 
 
 	

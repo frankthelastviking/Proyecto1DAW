@@ -146,8 +146,8 @@ public void setStageTutores(Stage tutores) {
 		
 		TestConexion AñadirTutor = new TestConexion();
 		AñadirTutor.InsertarTutorNuevo(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
-		String codconv = Empresa.getSelectionModel().getSelectedItem().toString();
-		
+		String nombreempr = Empresa.getSelectionModel().getSelectedItem();
+		AñadirTutor.VincularEmpresaTutor(DNItutor, AñadirTutor.SelectCodWhereNombre(nombreempr));
 	}
 	
 	

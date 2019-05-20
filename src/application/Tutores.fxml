@@ -145,6 +145,6 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="Empresa" layoutX="1357.0" layoutY="479.0" prefHeight="39.0" prefWidth="327.0" />
+      <ChoiceBox fx:id="Empresa" layoutX="1357.0" layoutY="479.0" onDragDetected="#SeleccionarEmpresa" onDragDone="#SeleccionarEmpresa" prefHeight="39.0" prefWidth="327.0" />
    </children>
 </AnchorPane>

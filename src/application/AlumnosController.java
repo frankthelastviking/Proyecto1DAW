@@ -66,10 +66,14 @@ public class AlumnosController {
 	private TableColumn<Alumno,String> ColObsrv;
 	
 	private final ObservableList<Alumno> data = FXCollections.observableArrayList();
-
+    
 		
 	
 	public void initialize(){
+		
+		TestConexion iniciotabla = new TestConexion();
+		
+		Tabla.setItems(iniciotabla.CargarTablaAlumnos());
 		Tabla.setItems(this.data);
 		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("DNI"));
 		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Nombre"));
