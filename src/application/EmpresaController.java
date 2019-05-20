@@ -2,13 +2,10 @@ package application;
 
 
 
-import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 
 
 import javafx.collections.FXCollections;
@@ -30,8 +27,7 @@ import javafx.stage.Stage;
 
 public class EmpresaController {
 	
-	private  EmpresaController EmpresasController;
-	
+
 	private Stage Empresas;
 	
 	//botones
@@ -156,18 +152,16 @@ public class EmpresaController {
 	
 	@FXML
     private void nuevaVentanaAnadirRepresentante() {
-		//this.EmpresasController.mostrarVentanaAnadirRepresentante();	
-    }
-	
-	/* public void mostrarVentanaAnadirRepresentante() {
-	          AnchorPane ventanaDos = (AnchorPane) loader.load();
-	   */         /* Creamos la segunda ventana como otro stage */
-	/*          Stage ventana = new Stage();
+		try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/AnadirRepresentante.fxml"));
+		AnchorPane ventanaDos = (AnchorPane)loader.load();
+	           /* Creamos la segunda ventana como otro stage */
+	          Stage ventana = new Stage();
 	            ventana.setTitle("AÑADIR REPRESENTANTE - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
 	          Empresas.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
-	       */   /* Le decimos a la ventana quién es la ventana original */
-	   /*          ventana.initOwner(Empresas);
-	            Scene scene = new Scene(ventanaDos);
+	    /* Le decimos a la ventana quién es la ventana original */
+	          ventana.initOwner(Empresas);
+	   	            Scene scene = new Scene(ventanaDos);
 	            ventana.setScene(scene);
 
 	            AnadirRepresentanteController controller2 = loader.getController();
@@ -179,10 +173,8 @@ public class EmpresaController {
 	            //tratar la excepción 
 	        }
 	    }
-	*/
-
-	Connection conexion;
 	
+
 	public void NuevaEmpresa() throws SQLException, ParseException{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -221,11 +213,11 @@ public class EmpresaController {
 		//El cancer de las fechas
 		
         String firmaST = Fecha_Firma.getEditor().getText();
-        java.util.Date firmaDT =  sdf.parse(firmaST);
+        //firmaST = sdf.format(firmaST);
         
         
         String finST = Fecha_Fin.getEditor().getText();
-        java.util.Date finDT =  sdf.parse(finST);
+        //finST = sdf.format(finST);
         
 		String NplzST = Numero_plazas.getText();
 		
@@ -234,9 +226,8 @@ public class EmpresaController {
 		
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirEmpresa = new TestConexion();
-		AñadirEmpresa.Conectar();
-		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaDT , finDT, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
-		conexion.close();
+		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaST , finST, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
+		
 	}
 	
 }

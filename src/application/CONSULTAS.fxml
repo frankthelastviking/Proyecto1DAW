@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1919.0" styleClass="anchor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConsultasController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="174.0" prefWidth="1926.0">
          <children>
@@ -37,13 +37,10 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <MenuButton layoutX="34.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="757.0" text="Seleccionar consulta">
+            <MenuButton layoutX="34.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="757.0" text="MenuButton">
               <items>
-                <MenuItem mnemonicParsing="false" text="Listado alumnos" />
-                <MenuItem mnemonicParsing="false" text="Listado alumnos - matriculas - ciclos" />
-                  <MenuItem mnemonicParsing="false" text="Listado empresas" />
-                  <MenuItem mnemonicParsing="false" text="Listado alumnos - empresas" />
-                  <MenuItem mnemonicParsing="false" text="Listado cursos - ciclos" />
+                <MenuItem mnemonicParsing="false" text="CONSULTA DEL TUMOR DE ENTORNOS" />
+                <MenuItem mnemonicParsing="false" text="ENTORNOS DA CANCER" />
               </items>
             </MenuButton>
          </children>
@@ -68,7 +65,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
+      <Button fx:id="SALIR" layoutX="1636.0" layoutY="895.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="75.0" prefWidth="242.0" style="-fx-background-color: RED;" text="SALIR" textFill="WHITE">
          <effect>
             <InnerShadow height="50.66" radius="24.0875" width="47.69" />
          </effect>

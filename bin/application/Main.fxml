@@ -81,7 +81,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="CONSULTAS" layoutX="734.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="CONSULTAS">
+      <Button fx:id="CONSULTAS" layoutX="734.0" layoutY="727.0" mnemonicParsing="false" onAction="#nuevaVentanaConsultas" prefHeight="260.0" prefWidth="466.0" text="CONSULTAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -89,7 +89,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="ASIGNAR_PRACTICAS" layoutX="211.0" layoutY="727.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ASIGNAR PRACTICAS">
+      <Button fx:id="ASIGNAR_PRACTICAS" layoutX="211.0" layoutY="727.0" mnemonicParsing="false" onAction="#nuevaVentanaAsignarPracticas" prefHeight="260.0" prefWidth="466.0" text="ASIGNAR PRACTICAS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>

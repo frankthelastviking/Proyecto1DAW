@@ -81,6 +81,16 @@ public class MainController {
     private void nuevaVentanaTutores() {
        	this.ProgramaPrincipal.mostrarVentanaTutores();
     }
+	
+	@FXML
+    private void nuevaVentanaConsultas() {
+       	this.ProgramaPrincipal.mostrarVentanaConsultas();
+    }
+	
+	@FXML
+    private void nuevaVentanaAsignarPracticas() {
+       	this.ProgramaPrincipal.mostrarVentanaAsignarPracticas();
+    }
 
 
 }

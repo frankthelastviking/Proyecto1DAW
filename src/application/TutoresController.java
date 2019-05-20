@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -52,6 +54,11 @@ public class TutoresController {
 	@FXML
 	private TextArea Observaciones;
 	
+	//ChoiceBox
+	@FXML
+	ChoiceBox<String> Empresa;
+	
+	
 	@FXML
 	private TableView<Tutor> Tabla;
 	
@@ -70,9 +77,27 @@ public class TutoresController {
 	@FXML
 	private TableColumn<Tutor,String> ColTel;
 	
+	
+	
 	private final ObservableList<Tutor> data = FXCollections.observableArrayList();
 	
+	TestConexion conexionbbdd;
+	
+	ObservableList<String> EmpresaList = FXCollections.observableArrayList("");
+	
 	public void initialize(){
+		
+        conexionbbdd = new TestConexion();
+		
+		EmpresaList = conexionbbdd.ListadoEmpresas();
+		
+		Empresa.setItems(EmpresaList);
+		
+		
+		
+		
+		
+		
 		Tabla.setItems(this.data);
 		ColDNI.setCellValueFactory(new PropertyValueFactory<Tutor,String>("DNI"));
 		ColNomb.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Nombre"));
@@ -90,4 +115,40 @@ public void setStageTutores(Stage tutores) {
 	public void closeWindow(){
 		this.tutores.close();
 	}
+	
+	
+	
+	@FXML
+	public void SeleccionarEmpresa(){
+		
+		
+		String aux = Empresa.getSelectionModel().getSelectedItem();
+		
+		
+		
+		
+		
+	}
+	
+	
+	public void NuevoTutor() {
+		
+		String DNItutor = DNI.getText();
+		String NOMBREtutor = Nombre.getText();
+		String APELLIDOStutor = Apellido.getText();
+		String CORREOtutor = Correo.getText();
+		String TELEFONOtutor = Telefono.getText();
+		String ObservacionesTutor = Observaciones.getText();
+		
+		
+		Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
+		data.add(nuevo);
+		
+		TestConexion AñadirTutor = new TestConexion();
+		AñadirTutor.InsertarTutorNuevo(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
+		String codconv = Empresa.getSelectionModel().getSelectedItem().toString();
+		
+	}
+	
+	
 }

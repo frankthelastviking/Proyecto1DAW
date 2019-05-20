@@ -148,6 +148,52 @@ public class Main extends Application {
         }
     }
     
+    public void mostrarVentanaConsultas() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/CONSULTAS.fxml"));
+            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            /* Creamos la segunda ventana como otro stage */
+            Stage ventana = new Stage();
+            ventana.setTitle("CONSULTAS - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
+            stagePrincipal.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+            /* Le decimos a la ventana quién es la ventana original */
+            ventana.initOwner(stagePrincipal);
+            Scene scene = new Scene(ventanaDos);
+            ventana.setScene(scene);
+
+            ConsultasController controller2 = loader.getController();
+            controller2.setStageConsultas(ventana);
+
+            ventana.show();
+
+        } catch (Exception e) {
+            //tratar la excepción 
+        }
+    }
+    
+    public void mostrarVentanaAsignarPracticas() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/Asignar practicas.fxml"));
+            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            /* Creamos la segunda ventana como otro stage */
+            Stage ventana = new Stage();
+            ventana.setTitle("ASIGNAR PRACTICAS - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
+            stagePrincipal.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+            /* Le decimos a la ventana quién es la ventana original */
+            ventana.initOwner(stagePrincipal);
+            Scene scene = new Scene(ventanaDos);
+            ventana.setScene(scene);
+
+            AsignarPracticasController controller2 = loader.getController();
+            controller2.setStageAsignar(ventana);
+
+            ventana.show();
+
+        } catch (Exception e) {
+            //tratar la excepción 
+        }
+    }
+    
    
   
 }

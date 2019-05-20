@@ -67,9 +67,7 @@ public class AlumnosController {
 	
 	private final ObservableList<Alumno> data = FXCollections.observableArrayList();
 
-	private Connection conexion;
-
-	
+		
 	
 	public void initialize(){
 		Tabla.setItems(this.data);
@@ -90,7 +88,7 @@ public class AlumnosController {
 		this.Alumnos.close();
 	}
 
-	public void NuevoAlumno() throws SQLException{
+	public void NuevoAlumno() {
 		String NombreST =  Nombre.getText();
 		String ApellidoST =  Apellido.getText();
 		String DNIST =  DNI.getText();
@@ -101,9 +99,7 @@ public class AlumnosController {
 		
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirAlumno = new TestConexion();
-		AñadirAlumno.Conectar();
 		AñadirAlumno.InsertarAlumnoNuevo(DNIST, NombreST, ApellidoST, ObservacionesST);	
-		conexion.close();
 	}
 	
 
