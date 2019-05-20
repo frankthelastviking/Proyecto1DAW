@@ -167,13 +167,13 @@ public void InsertarEmpresaNueva(String Cod_Convenio ,String NIF,String Especial
 	
 }
 
-public void InsertarTutorNuevo(String dni, String nombre, String apellidos,String correo,String telefono, String Observaciones ) {
+public void InsertarTutorNuevo(String dni, String nombre, String apellidos,String correo,String telefono, String Observaciones, String codconvenio ) {
 	
 	
 	
 	try {
 		PreparedStatement stmt;
-		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES (?,?,?,?,?,?)");
+		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES (?,?,?,?,?,?,?)");
 		
 		stmt.setString(1,dni);
 		stmt.setString(2,nombre);
@@ -181,7 +181,7 @@ public void InsertarTutorNuevo(String dni, String nombre, String apellidos,Strin
 		stmt.setString(4,correo);
 		stmt.setString(5,telefono);
 		stmt.setString(6,Observaciones);
-		
+		stmt.setString(7,codconvenio);
 		
 			
 		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"')");
@@ -204,7 +204,7 @@ public void VincularEmpresaTutor(String dnitut, String codcon) {
 	try {
 		PreparedStatement stmt;
 		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".E_TIENEN VALUES (?,?)");
-		
+		System.out.println("dnitut" + dnitut+ " codcon " + codcon);
 		stmt.setString(1,dnitut);
 		stmt.setString(2,codcon);
 		

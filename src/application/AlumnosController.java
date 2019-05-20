@@ -74,11 +74,11 @@ public class AlumnosController {
 		TestConexion iniciotabla = new TestConexion();
 		
 		Tabla.setItems(iniciotabla.CargarTablaAlumnos());
-		Tabla.setItems(this.data);
+		//Tabla.setItems(this.data);
 		ColDNI.setCellValueFactory(new PropertyValueFactory<Alumno,String>("DNI"));
 		ColNomb.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Nombre"));
 		ColApell.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Apellidos"));
-		ColObsrv.setCellValueFactory(new PropertyValueFactory<Alumno,String>("Observaciones"));
+
 	}
 	
 	
@@ -99,12 +99,28 @@ public class AlumnosController {
 		String ObservacionesST =  Observaciones.getText();
 		
 		Alumno nuevo = new Alumno(DNIST, NombreST,ApellidoST, ObservacionesST);
-		data.add(nuevo);
+		
 		
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirAlumno = new TestConexion();
 		AñadirAlumno.InsertarAlumnoNuevo(DNIST, NombreST, ApellidoST, ObservacionesST);	
+		Tabla.setItems(AñadirAlumno.CargarTablaAlumnos());
 	}
 	
+	
+	
+	public void EditarAlumno() {
+		
+		Alumno editado = Tabla.getSelectionModel().getSelectedItem();
+		
+		DNI.setText(editado.getDNI());
+		Nombre.setText(editado.getNombre());
+		Apellido.setText(editado.getApellidos());
+		Observaciones.setText(editado.getObservaciones());
+		
+		
+		
+	
+	}
 
 }

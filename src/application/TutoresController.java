@@ -40,6 +40,10 @@ public class TutoresController {
 	private TextField Nombre;
 	
 	@FXML
+	private TextField Cod_Convenio;
+	
+	
+	@FXML
 	private TextField Apellido;
 	
 	@FXML
@@ -132,6 +136,10 @@ public void setStageTutores(Stage tutores) {
 	
 	
 	public void NuevoTutor() {
+		TestConexion AñadirTutor = new TestConexion();
+
+		String aux = Empresa.getSelectionModel().getSelectedItem();
+		
 		
 		String DNItutor = DNI.getText();
 		String NOMBREtutor = Nombre.getText();
@@ -139,15 +147,15 @@ public void setStageTutores(Stage tutores) {
 		String CORREOtutor = Correo.getText();
 		String TELEFONOtutor = Telefono.getText();
 		String ObservacionesTutor = Observaciones.getText();
+		String codconvenio = AñadirTutor.SelectCodWhereNombre(aux);
 		
 		
-		Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
+		Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
 		data.add(nuevo);
 		
-		TestConexion AñadirTutor = new TestConexion();
-		AñadirTutor.InsertarTutorNuevo(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
-		String nombreempr = Empresa.getSelectionModel().getSelectedItem();
-		AñadirTutor.VincularEmpresaTutor(DNItutor, AñadirTutor.SelectCodWhereNombre(nombreempr));
+				AñadirTutor.InsertarTutorNuevo(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
+		//String nombreempr = Empresa.getSelectionModel().getSelectedItem();
+		//AñadirTutor.VincularEmpresaTutor(DNItutor, codconvenio);
 	}
 	
 	

@@ -155,7 +155,7 @@
       <TextField fx:id="Nif" layoutX="1420.0" layoutY="336.0" prefHeight="39.0" prefWidth="265.0" />
       <DatePicker fx:id="Fecha_Firma" layoutX="1575.0" layoutY="443.0" prefHeight="32.0" prefWidth="109.0" />
       <DatePicker fx:id="Fecha_Fin" layoutX="1576.0" layoutY="493.0" prefHeight="32.0" prefWidth="109.0" />
-      <TextField fx:id="Numero_plazas" layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
+      <TextField fx:id="Numero_plazas" layoutX="1576.0" layoutY="537.0" prefHeight="39.0" prefWidth="109.0" />
       <CheckBox fx:id="Basico" layoutX="1716.0" layoutY="460.0" mnemonicParsing="false" text="FP Básica" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
@@ -198,6 +198,6 @@
             <TableColumn prefWidth="241.0" text="CORREO" />
          </columns>
       </TableView>
-      <ChoiceBox layoutX="1444.0" layoutY="593.0" prefHeight="25.0" prefWidth="242.0" />
+      <ChoiceBox layoutX="1444.0" layoutY="587.0" prefHeight="39.0" prefWidth="242.0" />
    </children>
 </AnchorPane>

@@ -8,9 +8,10 @@ public class Tutor {
 	String Correo;
 	String Telefono;
 	String Observaciones;
+	String Cod_Convenio;
 	
 	
-	public Tutor(String dNI, String nombre, String apellidos, String correo, String telefono, String observaciones) {
+	public Tutor(String dNI, String nombre, String apellidos, String correo, String telefono, String observaciones, String convenio) {
 		super();
 		DNI = dNI;
 		Nombre = nombre;
@@ -18,6 +19,7 @@ public class Tutor {
 		Correo = correo;
 		Telefono = telefono;
 		Observaciones = observaciones;
+		Cod_Convenio = convenio;
 	}
 
 
@@ -68,6 +70,16 @@ public class Tutor {
 
 	public void setTelefono(String telefono) {
 		Telefono = telefono;
+	}
+
+
+	public String getCod_Convenio() {
+		return Cod_Convenio;
+	}
+
+
+	public void setCod_Convenio(String cod_Convenio) {
+		Cod_Convenio = cod_Convenio;
 	}
 	
 	
