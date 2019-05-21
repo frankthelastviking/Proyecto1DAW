@@ -226,6 +226,35 @@ public void InsertarTutorNuevo(String dni, String codconvenio ,String nombre, St
 	
 }
 
+
+public void InsertarReprNuevo(String dni, String nombre, String apellidos,String correo,String telefono, String Observaciones) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".REPRESENTANTE VALUES (?,?,?,?,?,?)");
+		
+		stmt.setString(1,dni);
+		stmt.setString(2,nombre);
+		stmt.setString(3,apellidos);
+		stmt.setString(4,correo);
+		stmt.setString(5,telefono);
+		stmt.setString(6,Observaciones);
+		
+		
+			
+		//System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+codconvenio+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"')");
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
+
 public void ActualizarAlumnos(String dni, String nombre, String apellidos, String Observaciones,String dniviejo) {
 	
 	
@@ -253,19 +282,22 @@ public void ActualizarAlumnos(String dni, String nombre, String apellidos, Strin
 }
 
 
-public void ActualizarCiclos(String dni, String nombre, String apellidos, String Observaciones,String dniviejo) {
+public void ActualizarCiclos(String codciclo, String tipo, String familiaprof, String nhoras,String vigente, String Nplz, String nombre,String codviejo) {
 	
 	
 	
 	try {
 		PreparedStatement stmt;
-		stmt = conexion.prepareStatement("UPDATE Alumnos SET DNI = ?, NOMBRE = ? ,APELLIDOS = ?, OBSERVACIONES = ? WHERE DNI = ?" );
+		stmt = conexion.prepareStatement("UPDATE CICLO SET COD_CICLO = ?, TIPO = ? ,FAMILIA_PROFESIONAL = ?, NUMERO_HORAS = ? , VIGENTE = ?, NPLAZAS = ?, NOMBRE = ? WHERE COD_CICLO = ?" );
 		
-		stmt.setString(1,dni);
-		stmt.setString(2,nombre);
-		stmt.setString(3,apellidos);
-        stmt.setString(4,Observaciones);
-		stmt.setString(5,dniviejo);
+		//stmt.setString(1,dni);
+	//	stmt.setString(2,nombre);
+		//stmt.setString(3,apellidos);
+    //    stmt.setString(4,Observaciones);
+	//	stmt.setString(5,dniviejo);
+		//stmt.setString(6,dniviejo);
+	//	stmt.setString(7,dniviejo);
+	//	stmt.setString(8,dniviejo);
 		
 			
 		System.out.println("Este mensaje esta programado para imprimirse jsuto antes de donde creo que esta el cancer. si lo ves visita el metodo actualizaralumnos en la clase testconexion");
@@ -333,6 +365,32 @@ public void VincularEmpresaTutor(String dnitut, String codcon) {
 	
 	
 }
+
+public void VincularEmpresaRep(String dnitut, String codcon) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".CON VALUES (?,?)");
+		//System.out.println("dnitut" + dnitut+ " codcon " + codcon);
+		stmt.setString(1,dnitut);
+		stmt.setString(2,codcon);
+		
+		
+		
+			
+
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
+
 
 
 public String SelectCodWhereNombre(String nombre) {
@@ -407,6 +465,28 @@ public ObservableList<String> ListadoAlumnos() {
 	try {
 		Statement stmt = conexion.createStatement();
 		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" );
+		while(rset.next()) {
+			aux.add(rset.getString(1));
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
+
+public ObservableList<String> ListadoRep() {
+	
+	ObservableList<String> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".REPRESENTANTE" );
 		while(rset.next()) {
 			aux.add(rset.getString(1));
 

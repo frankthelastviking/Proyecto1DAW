@@ -3,12 +3,14 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -116,7 +118,20 @@ private Stage CursosYCiclos;
 		
 		
 	}
-	
+	private static boolean isNumeric(String cadena){
+		try {
+		Integer.parseInt(cadena);
+		return true;
+		} catch (NumberFormatException nfe){
+		return false;
+		}}
+	public static void campononumerico(){
+	    Alert alert = new Alert(AlertType.ERROR);
+	    alert.setTitle("Campo incorrecto");
+	    alert.setHeaderText("Valores no validos en un campo numerico");
+	    alert.setContentText("Reviselo");
+	    alert.showAndWait();	
+	}
 	public void NuevoCiclo() {
 		
 		String codciclo = Codciclo.getText();
@@ -130,13 +145,16 @@ private Stage CursosYCiclos;
 			else {
 			vigente="NO";
 			}
+	
 		String Nplz = nplz.getText();
 		String nmbr = Nombre.getText();
-		
+		if((isNumeric(Nplz)==true)||(isNumeric(codciclo)==true)) {
 		TestConexion AñadirCiclo = new TestConexion();
 		AñadirCiclo.InsertarCicloNuevo(codciclo, tipo, familiaprof, nhoras,vigente,Nplz,nmbr);	
 		Tabla.setItems(AñadirCiclo.CargarTablaCursosYCiclos());}
 	
+	else {campononumerico();}
+	}
 	public void EditarCiclo() {
 		
 		Ciclo editar = Tabla.getSelectionModel().getSelectedItem();

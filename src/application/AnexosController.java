@@ -61,8 +61,8 @@ public void initialize(){
 
 public DatosAlumnos generadorDatosAlumno() {
 	String dni =DNI.getSelectionModel().getSelectedItem();
-	System.out.println("obteniedno datos alumno" );
-	System.out.println(DNI.getSelectionModel().getSelectedItem());
+	//System.out.println("obteniedno datos alumno" );
+	//System.out.println(DNI.getSelectionModel().getSelectedItem());
 	TestConexion generaralu = new TestConexion();
 	Alumno nuevoalupdf = generaralu.SelectDatosAlPDF(dni);
 	DatosAlumnos alumno = new DatosAlumnos("18/19","IFS02","DAW","20/03/2019", "20/06/2019","5", "09:00","15:00h", "14:00","18:00", 8, 370, "Valdemoro", "C/ Murillo 17", nuevoalupdf.getNombre(),nuevoalupdf.getApellidos(),"123456789P", "Pedro", "Camacho Ortega", "1111111111T","arturo", "Casado");

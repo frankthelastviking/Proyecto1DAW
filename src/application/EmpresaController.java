@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -61,6 +62,11 @@ public class EmpresaController {
 	
 	@FXML
 	private CheckBox Superior;
+	
+	@FXML
+	ChoiceBox<String> Rep;
+	
+	ObservableList<String> RepList = FXCollections.observableArrayList("");
 	
 	
 	
@@ -119,15 +125,23 @@ public class EmpresaController {
 	private TableColumn<Empresa,String> ColNplz;
 	
 	
-	private final ObservableList<Empresa> data = FXCollections.observableArrayList();
 	
 	
 	
 	
 	
+	TestConexion conexionbbdd;
 
 	public void initialize(){
-		TablaEmpresa.setItems(this.data);
+		 conexionbbdd = new TestConexion();
+			
+			RepList = conexionbbdd.ListadoRep();
+			
+			Rep.setItems(RepList);
+			
+		
+		
+	    TablaEmpresa.setItems(conexionbbdd.CargarTablaEmpresa());
 		ColNIF.setCellValueFactory(new PropertyValueFactory<Empresa,String>("NIF"));
 		ColNombEmpr.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Nombre"));
 		ColEsp.setCellValueFactory(new PropertyValueFactory<Empresa,String>("Especialidad"));
@@ -221,6 +235,9 @@ public class EmpresaController {
 		else {
 		superior="NO";
 		}
+		
+		String dnirep = Rep.getSelectionModel().getSelectedItem();
+		conexionbbdd.VincularEmpresaRep(Cod_ConvenioST,dnirep);
 
 		//El cancer de las fechas
 
@@ -233,12 +250,13 @@ public class EmpresaController {
 		        
 		String NplzST = Numero_plazas.getText();
 		if(isNumeric(NplzST)==true) {
-		Empresa nuevo = new Empresa( NIFST, NombreST, EspecialidadST , Cod_ConvenioST, firmaST,  finST,NplzST );
-		data.add(nuevo);
+		
+		
 
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirEmpresa = new TestConexion();
-		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaST , finST, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
+		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaST , finST, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );
+		TablaEmpresa.setItems(AñadirEmpresa.CargarTablaEmpresa());
 		}
 		else {campononumerico();}
 		}
