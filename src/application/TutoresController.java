@@ -40,10 +40,6 @@ public class TutoresController {
 	private TextField Nombre;
 	
 	@FXML
-	private TextField Cod_Convenio;
-	
-	
-	@FXML
 	private TextField Apellido;
 	
 	@FXML
@@ -83,7 +79,6 @@ public class TutoresController {
 	
 	
 	
-	private final ObservableList<Tutor> data = FXCollections.observableArrayList();
 	
 	TestConexion conexionbbdd;
 	
@@ -98,11 +93,13 @@ public class TutoresController {
 		Empresa.setItems(EmpresaList);
 		
 		
+         TestConexion iniciotabla = new TestConexion();
+		
+		Tabla.setItems(iniciotabla.CargarTablaTutor());
 		
 		
 		
 		
-		Tabla.setItems(this.data);
 		ColDNI.setCellValueFactory(new PropertyValueFactory<Tutor,String>("DNI"));
 		ColNomb.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Nombre"));
 		ColApell.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Apellidos"));
@@ -122,17 +119,7 @@ public void setStageTutores(Stage tutores) {
 	
 	
 	
-	@FXML
-	public void SeleccionarEmpresa(){
-		
-		
-		String aux = Empresa.getSelectionModel().getSelectedItem();
-		
-		
-		
-		
-		
-	}
+	
 	
 	
 	public void NuevoTutor() {
@@ -150,13 +137,56 @@ public void setStageTutores(Stage tutores) {
 		String codconvenio = AñadirTutor.SelectCodWhereNombre(aux);
 		
 		
-		Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
-		data.add(nuevo);
+		//Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
 		
-				AñadirTutor.InsertarTutorNuevo(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
+		
+		AñadirTutor.InsertarTutorNuevo(DNItutor,codconvenio,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
+		Tabla.setItems(AñadirTutor.CargarTablaTutor());
 		//String nombreempr = Empresa.getSelectionModel().getSelectedItem();
 		//AñadirTutor.VincularEmpresaTutor(DNItutor, codconvenio);
 	}
+	
+    String herotoelsistema="";
+	
+	
+	public void herotoelsistema() {
+		herotoelsistema=DNI.getText();
+	}
+	
+	
+	public void GuardarCambios() {
+		TestConexion update = new TestConexion();
+		String dniviejo=herotoelsistema;
+		String dni=DNI.getText();
+		String aux = Empresa.getSelectionModel().getSelectedItem();
+		String codconvenio = update.SelectCodWhereNombre(aux);
+		String nombre=Nombre.getText();
+		String apellidos=Apellido.getText();
+		String correo=Apellido.getText();
+		String telefono=Apellido.getText();
+		String observaciones=Observaciones.getText();
+		
+		update.ActualizarTutores(dni, codconvenio, nombre, apellidos, correo, telefono, observaciones, dniviejo);
+		Tabla.setItems(update.CargarTablaTutor());
+	}
+	
+	public void EditarTutor() {
+		//TestConexion conexion = new TestConexion();
+		Tutor editado = Tabla.getSelectionModel().getSelectedItem();
+		
+		DNI.setText(editado.getDNI());
+		//Empresa.setValue(conexion.SelectNombreWhereCod(editado.getCod_Convenio()));
+		Nombre.setText(editado.getNombre());
+		Apellido.setText(editado.getApellidos());
+		Correo.setText(editado.getCorreo());
+		Telefono.setText(editado.getTelefono());
+		Observaciones.setText(editado.getObservaciones());
+		
+		
+	
+	}
+	
+	
 	
 	
 }

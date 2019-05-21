@@ -81,6 +81,16 @@ public class Tutor {
 	public void setCod_Convenio(String cod_Convenio) {
 		Cod_Convenio = cod_Convenio;
 	}
+
+
+	public String getObservaciones() {
+		return Observaciones;
+	}
+
+
+	public void setObservaciones(String observaciones) {
+		Observaciones = observaciones;
+	}
 	
 	
 	

@@ -46,7 +46,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Guardar_Cambios" layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
+            <Button fx:id="Guardar_Cambios" layoutX="1415.0" layoutY="138.0" mnemonicParsing="false" onAction="#GuardarCambios" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -57,7 +57,7 @@
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
-      <TableView fx:id="Tabla" layoutX="18.0" layoutY="135.0" prefHeight="860.0" prefWidth="1024.0">
+      <TableView fx:id="Tabla" layoutX="18.0" layoutY="135.0" onMouseClicked="#EditarTutor" onMousePressed="#herotoelsistema" prefHeight="860.0" prefWidth="1024.0">
         <columns>
           <TableColumn fx:id="ColDNI" prefWidth="171.0" text="DNI" />
           <TableColumn fx:id="ColNomb" minWidth="0.0" prefWidth="195.0" text="NOMBRE" />
@@ -145,6 +145,6 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="Empresa" layoutX="1357.0" layoutY="479.0" onContextMenuRequested="#SeleccionarEmpresa" prefHeight="39.0" prefWidth="327.0" />
+      <ChoiceBox fx:id="Empresa" layoutX="1357.0" layoutY="479.0" prefHeight="39.0" prefWidth="327.0" />
    </children>
 </AnchorPane>

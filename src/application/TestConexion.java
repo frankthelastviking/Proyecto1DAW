@@ -167,7 +167,7 @@ public void InsertarEmpresaNueva(String Cod_Convenio ,String NIF,String Especial
 	
 }
 
-public void InsertarTutorNuevo(String dni, String nombre, String apellidos,String correo,String telefono, String Observaciones, String codconvenio ) {
+public void InsertarTutorNuevo(String dni, String codconvenio ,String nombre, String apellidos,String correo,String telefono, String Observaciones) {
 	
 	
 	
@@ -176,15 +176,16 @@ public void InsertarTutorNuevo(String dni, String nombre, String apellidos,Strin
 		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES (?,?,?,?,?,?,?)");
 		
 		stmt.setString(1,dni);
-		stmt.setString(2,nombre);
-		stmt.setString(3,apellidos);
-		stmt.setString(4,correo);
-		stmt.setString(5,telefono);
-		stmt.setString(6,Observaciones);
-		stmt.setString(7,codconvenio);
+		stmt.setString(2,codconvenio);
+		stmt.setString(3,nombre);
+		stmt.setString(4,apellidos);
+		stmt.setString(5,correo);
+		stmt.setString(6,telefono);
+		stmt.setString(7,Observaciones);
+		
 		
 			
-		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"','"+codconvenio+"')");
+		System.out.println("INSERT INTO "+esquema+".TUTOR_EMPRESA VALUES ('"+dni+"','"+codconvenio+"','"+nombre+"','"+apellidos+"','"+correo+"','"+telefono+"','"+Observaciones+"')");
 		stmt.executeUpdate();
 		stmt.close();
 		
@@ -195,6 +196,60 @@ public void InsertarTutorNuevo(String dni, String nombre, String apellidos,Strin
 	
 }
 
+public void ActualizarAlumnos(String dni, String nombre, String apellidos, String Observaciones,String dniviejo) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("UPDATE Alumnos SET DNI = ?, NOMBRE = ? ,APELLIDOS = ?, OBSERVACIONES = ? WHERE DNI = ?" );
+		
+		stmt.setString(1,dni);
+		stmt.setString(2,nombre);
+		stmt.setString(3,apellidos);
+        stmt.setString(4,Observaciones);
+		stmt.setString(5,dniviejo);
+		
+			
+		System.out.println("Este mensaje esta programado para imprimirse jsuto antes de donde creo que esta el cancer. si lo ves visita el metodo actualizaralumnos en la clase testconexion");
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
+
+public void ActualizarTutores(String dni, String codconvenio ,String nombre, String apellidos,String correo,String telefono, String Observaciones,String dniviejo) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("UPDATE TUTOR_EMPRESA SET DNI = ?,Cod_Convenio = ?, NOMBRE = ? ,APELLIDOS = ? ,CORREO = ? ,TELEFONO = ?, OBSERVACIONES = ? WHERE DNI = ?" );
+		
+		stmt.setString(1,dni);
+		stmt.setString(2,codconvenio);
+		stmt.setString(3,nombre);
+		stmt.setString(4,apellidos);
+		stmt.setString(5,correo);
+		stmt.setString(6,telefono);
+        stmt.setString(7,Observaciones);
+		stmt.setString(8,dniviejo);
+		
+			
+		System.out.println("Este mensaje esta programado para imprimirse jsuto antes de donde creo que esta el cancer. si lo ves visita el metodo actualizartutores en la clase testconexion");
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
 
 
 public void VincularEmpresaTutor(String dnitut, String codcon) {
@@ -230,6 +285,28 @@ public String SelectCodWhereNombre(String nombre) {
 	try {
 		Statement stmt = conexion.createStatement();
 		ResultSet rset = stmt.executeQuery("SELECT Cod_Convenio FROM "+esquema+".EMPRESAS WHERE Nombre='"+nombre+"'");
+		while(rset.next()) {
+			aux +=rset.getString(1);
+			
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
+
+public String SelectNombreWhereCod(String cod) {
+	
+	String aux="";
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT Nombre FROM "+esquema+".EMPRESAS WHERE Cod_Convenio = '"+cod+"'");
 		while(rset.next()) {
 			aux +=rset.getString(1);
 			
@@ -291,6 +368,36 @@ public ObservableList<Alumno> CargarTablaAlumnos() {
 	return aux;
 	
 }
+
+public ObservableList<Tutor> CargarTablaTutor() {
+	
+	ObservableList<Tutor> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".TUTOR_EMPRESA" );
+		while(rset.next()) {
+			String DNI = rset.getString(1);
+			String codconv = rset.getString(2);
+			String Nombre = rset.getString(3);
+			String Apellidos = rset.getString(4);
+			String corr = rset.getString(5);
+			String tel = rset.getString(6);
+			String Observaciones = rset.getString(7);
+			Tutor tutornuevo=new Tutor(DNI,Nombre,Apellidos,corr,tel,Observaciones,codconv);
+			aux.add(tutornuevo);
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
 
 
 	

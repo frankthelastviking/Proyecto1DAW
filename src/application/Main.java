@@ -17,6 +17,7 @@ public class Main extends Application {
     private static Stage stagePrincipal;
     private AnchorPane rootPane;
 
+    
     @Override
     public void start(Stage stagePrincipal) throws Exception {
         Main.stagePrincipal = stagePrincipal;
