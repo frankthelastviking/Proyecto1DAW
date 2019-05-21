@@ -2,11 +2,8 @@ package application;
 
 
 
-
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -193,8 +190,6 @@ public class EmpresaController {
 		    alert.showAndWait();	
 		}
 		public void NuevaEmpresa() throws SQLException, ParseException{
-
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
 
 		String Cod_ConvenioST = Cod_Convenio.getText();

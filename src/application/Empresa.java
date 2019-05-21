@@ -1,7 +1,5 @@
 package application;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 public class Empresa {
 	

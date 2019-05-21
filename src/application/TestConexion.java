@@ -343,6 +343,57 @@ public ObservableList<String> ListadoEmpresas() {
 }
 
 
+public ObservableList<String> ListadoAlumnos() {
+	
+	ObservableList<String> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" );
+		while(rset.next()) {
+			aux.add(rset.getString(1));
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
+
+
+public Alumno SelectDatosAlPDF (String DNI) {
+	Alumno alnuevo = null;
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" );
+		while(rset.next()) {
+			
+			String Nombre = rset.getString(2);
+			String Apellidos = rset.getString(3);
+			String Observaciones = rset.getString(4);
+			 alnuevo=new Alumno(DNI,Nombre,Apellidos,Observaciones);
+			
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return alnuevo;
+	
+}
+	
+	
+	
+
+
 public ObservableList<Alumno> CargarTablaAlumnos() {
 	
 	ObservableList<Alumno> aux = FXCollections.observableArrayList();

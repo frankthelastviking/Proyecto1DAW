@@ -2,8 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -39,7 +38,7 @@
                   <Font name="Georgia Bold" size="48.0" />
                </font>
             </Text>
-            <Button layoutX="1121.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO CICLO">
+            <Button fx:id="Nuevo_Ciclo" layoutX="1121.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="NUEVO CICLO">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -47,7 +46,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="1398.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
+            <Button fx:id="GuardarCambios" layoutX="1398.0" layoutY="214.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="255.0" text="GUARDAR CAMBIOS">
                <effect>
                   <InnerShadow height="53.62" radius="24.8275" width="47.69" />
                </effect>
@@ -63,16 +62,14 @@
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
-      <TableView layoutX="18.0" layoutY="135.0" prefHeight="860.0" prefWidth="1024.0">
+      <TableView fx:id="Tabla" layoutX="18.0" layoutY="135.0" prefHeight="860.0" prefWidth="1024.0">
         <columns>
-          <TableColumn prefWidth="159.0" text="COD" />
-          <TableColumn minWidth="0.0" prefWidth="233.0" text="NOMBRE" />
-            <TableColumn minWidth="0.0" prefWidth="110.0" text="AÑO ACADEMICO" />
-            <TableColumn prefWidth="151.0" text="FAMILIA PROF." />
-            <TableColumn prefWidth="124.0" text="TIPO" />
-            <TableColumn prefWidth="95.0" text="HORAS CURSO" />
-            <TableColumn prefWidth="81.0" text="HORAS CICLO" />
-            <TableColumn prefWidth="70.0" text="N.PLAZAS" />
+          <TableColumn fx:id="Colcod" prefWidth="159.0" text="COD" />
+          <TableColumn fx:id="Colnombr" minWidth="0.0" prefWidth="233.0" text="NOMBRE" />
+            <TableColumn fx:id="Colfamiliaprof" prefWidth="151.0" text="FAMILIA PROF." />
+            <TableColumn fx:id="ColTipo" prefWidth="124.0" text="TIPO" />
+            <TableColumn fx:id="Colhoras" prefWidth="161.0" text="HORAS" />
+            <TableColumn fx:id="Colnplz" prefWidth="195.0" text="N.PLAZAS" />
         </columns>
       </TableView>
       <Text fill="WHITE" layoutX="1116.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" textAlignment="CENTER" wrappingWidth="180.51174926757812">
@@ -91,9 +88,9 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1574.0" layoutY="301.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1574.0" layoutY="350.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1574.0" layoutY="448.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="Nombre" layoutX="1574.0" layoutY="301.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="FamiliaProf" layoutX="1574.0" layoutY="350.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="Codciclo" layoutX="1574.0" layoutY="448.0" prefHeight="39.0" prefWidth="265.0" />
       <Button layoutX="1125.0" layoutY="918.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR CALENDARIO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
@@ -128,8 +125,8 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1575.0" layoutY="400.0" prefHeight="39.0" prefWidth="265.0" />
-      <TextField layoutX="1576.0" layoutY="495.0" prefHeight="39.0" prefWidth="109.0" />
+      <TextField fx:id="Tipo" layoutX="1575.0" layoutY="400.0" prefHeight="39.0" prefWidth="265.0" />
+      <TextField fx:id="nplz" layoutX="1576.0" layoutY="495.0" prefHeight="39.0" prefWidth="109.0" />
       <CheckBox layoutX="1731.0" layoutY="523.0" mnemonicParsing="false" text="Vigente" textFill="WHITE">
          <font>
             <Font name="Georgia" size="24.0" />
@@ -140,20 +137,14 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <MenuButton layoutX="1444.0" layoutY="765.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="242.0" text="MenuButton">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
       <Separator layoutX="1067.0" layoutY="660.0" prefHeight="39.0" prefWidth="854.0" />
       <Text fill="WHITE" layoutX="1123.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMERO DE HORAS" textAlignment="CENTER" wrappingWidth="369.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
-      <Button layoutX="1122.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION &#10;DE PRESENTACION" textOverrun="CLIP">
+      <TextField fx:id="nhors" layoutX="1576.0" layoutY="541.0" prefHeight="39.0" prefWidth="109.0" />
+      <Button fx:id="DocPres1" layoutX="1122.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR DOCUMENTACION &#10;DE PRESENTACION" textOverrun="CLIP">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -161,7 +152,7 @@
             <Font name="Century" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="1378.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR OTRA &#10;DOCUMENTACION">
+      <Button fx:id="AdjOtraDoc" layoutX="1378.0" layoutY="587.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="242.0" text="ADJUNTAR OTRA &#10;DOCUMENTACION">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -169,7 +160,7 @@
             <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1707.0" layoutY="764.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="168.0" text="GENERAR CURSO">
+      <Button fx:id="GenerarCurso" layoutX="1707.0" layoutY="764.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="168.0" text="GENERAR CURSO">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -188,13 +179,13 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <TextField layoutX="1576.0" layoutY="860.0" prefHeight="39.0" prefWidth="109.0" />
+      <TextField fx:id="nhrsCUR" layoutX="1576.0" layoutY="860.0" prefHeight="39.0" prefWidth="109.0" />
       <Text fill="WHITE" layoutX="1121.0" layoutY="744.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURSOS" wrappingWidth="235.51174926757812">
          <font>
             <Font name="Georgia Bold" size="48.0" />
          </font>
       </Text>
-      <Button layoutX="1125.0" layoutY="958.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR DOC. PRESENTACION">
+      <Button fx:id="DocPres2" layoutX="1125.0" layoutY="958.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="ADJUNTAR DOC. PRESENTACION">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -210,6 +201,7 @@
             <Font name="Century" size="12.0" />
          </font>
       </Button>
-      <TextField layoutX="1576.0" layoutY="814.0" prefHeight="39.0" prefWidth="109.0" />
+      <TextField fx:id="AnoAcad" layoutX="1576.0" layoutY="814.0" prefHeight="39.0" prefWidth="109.0" />
+      <ChoiceBox fx:id="ciclo" layoutX="1444.0" layoutY="763.0" prefHeight="39.0" prefWidth="242.0" />
    </children>
 </AnchorPane>
