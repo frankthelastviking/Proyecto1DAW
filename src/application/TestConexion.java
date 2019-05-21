@@ -369,6 +369,38 @@ public ObservableList<Alumno> CargarTablaAlumnos() {
 	
 }
 
+public ObservableList<Empresa> CargarTablaEmpresa() {
+	
+	ObservableList<Empresa> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".EMPRESAS" );
+		while(rset.next()) {
+			
+			String Nombre = rset.getString(10);
+			String Especialidad = rset.getString(3);
+			String Cod_Convenio=rset.getString(1);
+			String NIF = rset.getString(2);
+			String firma = rset.getString(4);
+			String fin = rset.getString(5);
+			
+			String Nplz = rset.getString(11);
+			
+			Empresa empnueva=new Empresa(NIF ,Nombre, Especialidad, Cod_Convenio, firma , fin, Nplz);
+			aux.add(empnueva);
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
 public ObservableList<Tutor> CargarTablaTutor() {
 	
 	ObservableList<Tutor> aux = FXCollections.observableArrayList();

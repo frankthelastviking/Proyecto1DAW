@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -21,7 +22,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -175,25 +175,28 @@ public class EmpresaController {
 	            //tratar la excepción 
 	        }
 	    }
+	
+	
+
 	private static boolean isNumeric(String cadena){
 		try {
-			Integer.parseInt(cadena);
-			return true;
+		Integer.parseInt(cadena);
+		return true;
 		} catch (NumberFormatException nfe){
-			return false;
+		return false;
 		}}
-	public static void campononumerico(){
-    	Alert alert = new Alert(AlertType.ERROR);
-    	alert.setTitle("Campo incorrecto");
-    	alert.setHeaderText("Valores no validos en un campo numerico");
-    	alert.setContentText("Reviselo");
-    	alert.showAndWait();		
-	}
-	public void NuevaEmpresa() throws SQLException, ParseException{
-		
+		public static void campononumerico(){
+		    Alert alert = new Alert(AlertType.ERROR);
+		    alert.setTitle("Campo incorrecto");
+		    alert.setHeaderText("Valores no validos en un campo numerico");
+		    alert.setContentText("Reviselo");
+		    alert.showAndWait();	
+		}
+		public void NuevaEmpresa() throws SQLException, ParseException{
+
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-		
-		
+
+
 		String Cod_ConvenioST = Cod_Convenio.getText();
 		String NombreST =  Nombre.getText();
 		String EspecialidadST =  Especialidad.getText();
@@ -202,47 +205,49 @@ public class EmpresaController {
 		String basico;
 		String medio;
 		String superior;
-		
+
 		if (Basico.isSelected()==true) {
-			basico="SI";
+		basico="SI";
 		}
 		else {
-			basico="NO";
+		basico="NO";
 		}
-		
+
 		if (Medio.isSelected()==true) {
-			medio="SI";
+		medio="SI";
 		}
 		else {
-			medio="NO";
+		medio="NO";
 		}
-		
+
 		if (Superior.isSelected()==true) {
-			superior="SI";
+		superior="SI";
 		}
 		else {
-			superior="NO";
+		superior="NO";
 		}
-		
+
 		//El cancer de las fechas
-		
-        String firmaST = Fecha_Firma.getEditor().getText();
-        //firmaST = sdf.format(firmaST);
-        
-        
-        String finST = Fecha_Fin.getEditor().getText();
-        //finST = sdf.format(finST);
-        
+
+		        String firmaST = Fecha_Firma.getEditor().getText();
+		        //firmaST = sdf.format(firmaST);
+		        
+		        
+		        String finST = Fecha_Fin.getEditor().getText();
+		        //finST = sdf.format(finST);
+		        
 		String NplzST = Numero_plazas.getText();
 		if(isNumeric(NplzST)==true) {
 		Empresa nuevo = new Empresa( NIFST, NombreST, EspecialidadST , Cod_ConvenioST, firmaST,  finST,NplzST );
 		data.add(nuevo);
-		
+
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirEmpresa = new TestConexion();
 		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaST , finST, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
 		}
 		else {campononumerico();}
-	}
+		}
+
+		
 	
 }
