@@ -195,7 +195,28 @@ public class Main extends Application {
         }
     }
     
-   
+    public void mostrarVentanaAnexos() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../application/ANEXOS.fxml"));
+            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            /* Creamos la segunda ventana como otro stage */
+            Stage ventana = new Stage();
+            ventana.setTitle("ANEXOS - APLICACION DE GESTION DE DATOS DE PRACTICAS PROYECTO DAW1 FJ-V");
+            stagePrincipal.getIcons().add(new Image("/imagesUI/logo-colegio-valle-del-miro.png")); 
+            /* Le decimos a la ventana quién es la ventana original */
+            ventana.initOwner(stagePrincipal);
+            Scene scene = new Scene(ventanaDos);
+            ventana.setScene(scene);
+
+           AnexosController controller2 = loader.getController();
+            controller2.setStageAnexos(ventana);
+
+            ventana.show();
+
+        } catch (Exception e) {
+            //tratar la excepción 
+        }
+    }
   
 }
 

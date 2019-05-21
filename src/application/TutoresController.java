@@ -3,6 +3,7 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
@@ -10,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -106,7 +108,21 @@ public class TutoresController {
 		ColCorr.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Correo"));
 		ColTel.setCellValueFactory(new PropertyValueFactory<Tutor,String>("Telefono"));
 	}
-
+	
+	private static boolean isNumeric(String cadena){
+		try {
+			Integer.parseInt(cadena);
+			return true;
+		} catch (NumberFormatException nfe){
+			return false;
+		}}
+	public static void campononumerico(){
+    	Alert alert = new Alert(AlertType.ERROR);
+    	alert.setTitle("Campo incorrecto");
+    	alert.setHeaderText("Valores no validos en un campo numerico");
+    	alert.setContentText("Reviselo");
+    	alert.showAndWait();		
+	}
 	
 public void setStageTutores(Stage tutores) {
 		
@@ -120,7 +136,13 @@ public void setStageTutores(Stage tutores) {
 	
 	
 	
-	
+	public static void dninovalido(){
+    	Alert alert = new Alert(AlertType.ERROR);
+    	alert.setTitle("DNI INCORRECTO");
+    	alert.setHeaderText("El DNI no es valido, letra y numeros no concuerdan");
+    	alert.setContentText("Reviselo");
+    	alert.showAndWait();		
+	}
 	
 	public void NuevoTutor() {
 		TestConexion AñadirTutor = new TestConexion();
@@ -136,15 +158,20 @@ public void setStageTutores(Stage tutores) {
 		String ObservacionesTutor = Observaciones.getText();
 		String codconvenio = AñadirTutor.SelectCodWhereNombre(aux);
 		
-		
+		ValidadorDNI validador = new ValidadorDNI(DNItutor);
+		if(validador.validar()==true){
 		//Tutor nuevo = new Tutor(DNItutor,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor,codconvenio);
-		
+			if(isNumeric(TELEFONOtutor)==true) {
 		
 		AñadirTutor.InsertarTutorNuevo(DNItutor,codconvenio,NOMBREtutor,APELLIDOStutor,CORREOtutor,TELEFONOtutor,ObservacionesTutor);
 		Tabla.setItems(AñadirTutor.CargarTablaTutor());
 		//String nombreempr = Empresa.getSelectionModel().getSelectedItem();
 		//AñadirTutor.VincularEmpresaTutor(DNItutor, codconvenio);
-	}
+			}else {campononumerico();}
+		}
+		else {
+			dninovalido();
+		}}
 	
     String herotoelsistema="";
 	

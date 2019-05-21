@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -20,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -173,8 +175,20 @@ public class EmpresaController {
 	            //tratar la excepción 
 	        }
 	    }
-	
-
+	private static boolean isNumeric(String cadena){
+		try {
+			Integer.parseInt(cadena);
+			return true;
+		} catch (NumberFormatException nfe){
+			return false;
+		}}
+	public static void campononumerico(){
+    	Alert alert = new Alert(AlertType.ERROR);
+    	alert.setTitle("Campo incorrecto");
+    	alert.setHeaderText("Valores no validos en un campo numerico");
+    	alert.setContentText("Reviselo");
+    	alert.showAndWait();		
+	}
 	public void NuevaEmpresa() throws SQLException, ParseException{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -220,14 +234,15 @@ public class EmpresaController {
         //finST = sdf.format(finST);
         
 		String NplzST = Numero_plazas.getText();
-		
+		if(isNumeric(NplzST)==true) {
 		Empresa nuevo = new Empresa( NIFST, NombreST, EspecialidadST , Cod_ConvenioST, firmaST,  finST,NplzST );
 		data.add(nuevo);
 		
 		//creo objeto de la clase TestConexion para poder ejecutar los metodos de conexion a la base de datos y el metodo de insercion del alumno nuevo 
 		TestConexion AñadirEmpresa = new TestConexion();
 		AñadirEmpresa.InsertarEmpresaNueva(Cod_ConvenioST , NIFST, EspecialidadST, firmaST , finST, basico,  medio,  superior,  ObservacionesST, NombreST, NplzST );	
-		
+		}
+		else {campononumerico();}
 	}
 	
 }

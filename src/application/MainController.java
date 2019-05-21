@@ -158,6 +158,17 @@ public class MainController {
 	    }
     }
 	
+	@FXML
+    private void nuevaVentanaAnexos() {
+		if(logged==true) {
+	
+       	this.ProgramaPrincipal.mostrarVentanaAnexos();}
+		else {
+	    	accesonoautorizado();
+	    	
+	    }
+    }
+	
 
 	@FXML
 	public void login() {

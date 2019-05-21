@@ -104,7 +104,7 @@
             <Font name="Century" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="ANEXOS" layoutX="1258.0" layoutY="728.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="466.0" text="ANEXOS">
+      <Button fx:id="ANEXOS" layoutX="1258.0" layoutY="728.0" mnemonicParsing="false" onAction="#nuevaVentanaAnexos" prefHeight="260.0" prefWidth="466.0" text="ANEXOS">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
