@@ -80,7 +80,7 @@ public void genanex2() throws FileNotFoundException, DocumentException{
 	//
 
 AnexoII anexoII = new AnexoII(coledata, empdata, this.generadorDatosAlumno());
-anexoII.generarAnexoII("", "C:\\");
+anexoII.generarAnexoII("", "src/anexos/");
 }
 
 public void setStageAnexos(Stage anexos) {

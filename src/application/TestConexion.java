@@ -134,6 +134,36 @@ public void InsertarAlumnoNuevo(String dni, String nombre, String apellidos, Str
 	}
 
 
+public void InsertarCicloNuevo(String dnicodciclo, String tipo, String familiaprof, String nhoras,String vigente, String Nplz, String nombre) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("INSERT INTO "+esquema+".ALUMNOS VALUES (?,?,?,?,?,?,?)");
+		
+		stmt.setString(1,dnicodciclo);
+		stmt.setString(2,tipo);
+		stmt.setString(3,familiaprof);
+		stmt.setString(4,nhoras);
+		stmt.setString(5,vigente);
+		stmt.setString(6,Nplz);
+		stmt.setString(7,nombre);
+		
+		//stmt.executeUpdate("INSERT INTO "+esquema+".ALUMNOS VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+Observaciones+"')");
+			
+		//System.out.println("INSERT INTO "+esquema+".ALUMNOS VALUES ('"+dni+"','"+nombre+"','"+apellidos+"','"+Observaciones+"')");
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
+
+
 public void InsertarEmpresaNueva(String Cod_Convenio ,String NIF,String Especialidad,String firmaDT ,String finDT,String basico, String medio, String Superior, String ObservacionesST,String Nombre,String NplzST ) {
 	
 	
@@ -197,6 +227,33 @@ public void InsertarTutorNuevo(String dni, String codconvenio ,String nombre, St
 }
 
 public void ActualizarAlumnos(String dni, String nombre, String apellidos, String Observaciones,String dniviejo) {
+	
+	
+	
+	try {
+		PreparedStatement stmt;
+		stmt = conexion.prepareStatement("UPDATE Alumnos SET DNI = ?, NOMBRE = ? ,APELLIDOS = ?, OBSERVACIONES = ? WHERE DNI = ?" );
+		
+		stmt.setString(1,dni);
+		stmt.setString(2,nombre);
+		stmt.setString(3,apellidos);
+        stmt.setString(4,Observaciones);
+		stmt.setString(5,dniviejo);
+		
+			
+		System.out.println("Este mensaje esta programado para imprimirse jsuto antes de donde creo que esta el cancer. si lo ves visita el metodo actualizaralumnos en la clase testconexion");
+		stmt.executeUpdate();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	
+	
+}
+
+
+public void ActualizarCiclos(String dni, String nombre, String apellidos, String Observaciones,String dniviejo) {
 	
 	
 	
@@ -364,13 +421,34 @@ public ObservableList<String> ListadoAlumnos() {
 	
 }
 
+public ObservableList<String> ListadoCiclos() {
+	
+	ObservableList<String> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".CICLO" );
+		while(rset.next()) {
+			aux.add(rset.getString(1));
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
 
 
 public Alumno SelectDatosAlPDF (String DNI) {
 	Alumno alnuevo = null;
 	try {
 		Statement stmt = conexion.createStatement();
-		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS" );
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".ALUMNOS WHERE DNI='"+DNI+"'");
 		while(rset.next()) {
 			
 			String Nombre = rset.getString(2);
@@ -469,6 +547,36 @@ public ObservableList<Tutor> CargarTablaTutor() {
 			String Observaciones = rset.getString(7);
 			Tutor tutornuevo=new Tutor(DNI,Nombre,Apellidos,corr,tel,Observaciones,codconv);
 			aux.add(tutornuevo);
+
+		}
+		rset.close();
+		stmt.close();
+		
+	}catch (SQLException s){
+		s.printStackTrace();
+	}
+	return aux;
+	
+}
+
+
+public ObservableList<Ciclo> CargarTablaCursosYCiclos() {
+	
+	ObservableList<Ciclo> aux = FXCollections.observableArrayList();
+	
+	try {
+		Statement stmt = conexion.createStatement();
+		ResultSet rset = stmt.executeQuery("SELECT * FROM "+esquema+".CICLO" );
+		while(rset.next()) {
+			String codciclo = rset.getString(1);
+			String tipo = rset.getString(2);
+			String familiaprof = rset.getString(3);
+			String nhoras = rset.getString(4);
+			String vigente = rset.getString(5);
+			String nplz = rset.getString(6);
+			String nom= rset.getString(7);
+			Ciclo ciclonuevo=new Ciclo(codciclo,tipo,familiaprof,nhoras,vigente,nplz,nom);
+			aux.add(ciclonuevo);
 
 		}
 		rset.close();
