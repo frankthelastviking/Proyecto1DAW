@@ -60,7 +60,7 @@
          </children>
       </AnchorPane>
       <Separator layoutY="103.0" prefHeight="39.0" prefWidth="1920.0" />
-      <Button layoutX="1555.0" layoutY="262.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" text="DESCARGAR COMO PDF">
+      <Button fx:id="Anexo1" layoutX="1555.0" layoutY="262.0" mnemonicParsing="false" onAction="#genanex1" prefHeight="38.0" prefWidth="242.0" text="DESCARGAR COMO PDF">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -81,12 +81,12 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="106.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BREVE DESCRIPCION ACLARATORIA DE CUAL ES Y DEMAS Y TAL Y CUAL" textAlignment="CENTER" wrappingWidth="1524.5117492675781">
+      <Text fill="WHITE" layoutX="106.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Convenio de Colaboración Centro Educativo-Empresa" textAlignment="CENTER" wrappingWidth="1524.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Button layoutX="1556.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="242.0" text="DESCARGAR COMO PDF">
+      <Button fx:id="Anexo2" layoutX="1556.0" layoutY="311.0" mnemonicParsing="false" onAction="#genanex2" prefHeight="38.0" prefWidth="242.0" text="DESCARGAR COMO PDF">
          <effect>
             <InnerShadow height="53.62" radius="24.8275" width="47.69" />
          </effect>
@@ -99,7 +99,7 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="107.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BREVE DESCRIPCION ACLARATORIA DE CUAL ES Y DEMAS Y TAL Y CUAL" textAlignment="CENTER" wrappingWidth="1524.5117492675781">
+      <Text fill="WHITE" layoutX="107.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relación de Alumnos (1) " textAlignment="CENTER" wrappingWidth="1524.5117492675781">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
